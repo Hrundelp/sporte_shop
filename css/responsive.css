@@ -1,0 +1,154 @@
+/* --- 1200px (Планшеты в альбомной ориентации и маленькие ноутбуки) --- */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+
+    /* Главная */
+    .products-grid,
+    .products-grid.large {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Регистрация */
+    .signup-container {
+        padding: 0 40px;
+        gap: 60px;
+        margin: 80px auto;
+    }
+
+    .side-image {
+        width: 500px;
+        height: 600px;
+    }
+}
+
+/* --- 992px (Средние экраны) --- */
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .sidebar-menu {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+    }
+
+    .products-grid,
+    .products-grid.large {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .banner-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .banner-box-image img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* --- 900px (Специфическая точка для формы регистрации) --- */
+@media (max-width: 900px) {
+    .signup-container {
+        flex-direction: column;
+        padding: 0 20px;
+        margin: 40px auto;
+    }
+
+    .side-image {
+        width: 100%;
+        max-width: 500px;
+        height: 350px;
+        border-radius: 4px;
+    }
+
+    .signup-form {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* --- 768px (Планшеты и большие телефоны) --- */
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+
+    /* Прячем меню, тут обычно делают "бургер" */
+    .nav-menu {
+        display: none;
+    }
+
+    .search-box input {
+        width: 120px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .products-grid,
+    .products-grid.large {
+        grid-template-columns: 1fr;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .arrival-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .arrival-card.large {
+        height: 300px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .signup-container,
+    .login-container {
+        flex-direction: column;
+        padding: 0 20px;
+        gap: 40px;
+    }
+}

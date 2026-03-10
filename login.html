@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Спортики</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">Спортики</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="register.html">Регистрация</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Что вы ищете?">
+                        <img src="assets\icons\поиск.svg" width="24" height="24" alt="Иконка">
+                    </div>
+                    <div class="icons">
+                        <button class="icon-btn">
+                            <img src="assets\icons\Избранное.svg" width="24" height="24" alt="Иконка">
+                        </button>
+                        <button class="icon-btn">
+                            <img src="assets\icons\Корзина.svg" width="24" height="24" alt="Иконка">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-page">
+        <div class="login-container">
+            <div class="side-image">
+                <img src="assets/images/Вход.jpg" alt="Login Image">
+            </div>
+
+            <div class="login-form-wrapper">
+                <div class="login-form">
+                    <div class="login-header">
+                        <h1>Войти</h1>
+                        <p>Введите свои данные ниже</p>
+                    </div>
+
+                    <form id="loginForm" class="auth-form-content">
+                        <div class="form-group">
+                            <input type="text" id="emailPhone" name="emailPhone" required>
+                            <label for="emailPhone">Email или номер телефона</label>
+                        </div>
+
+                        <div class="form-group password-group">
+                            <input type="password" id="password" name="password" required>
+                            <label for="password">Пароль</label>
+                            <button type="button" class="toggle-password" aria-label="Показать/скрыть пароль">
+                                <img class="eye eye-open" src="assets/icons/openpas.svg" width="24" height="24"
+                                    alt="Показать">
+                                <img class="eye eye-closed hidden" src="assets/icons/closepas.svg" width="24"
+                                    height="24" alt="Скрыть">
+                            </button>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-login">Войти</button>
+                            <a href="#" class="forgot-password">Забыли пароль?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Спортики</h4>
+                    <p class="small">Хотите получать скидки первым?</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Введите свой e-mail">
+                        <button>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакты</h4>
+                    <p>Тут бы адресс какой нибудь,<br>г.Владимир, ул.Мира д.1.</p>
+                    <p>ggshop@gmail.com</p>
+                    <p>+8800-555-35-35</p>
+                    <div class="social-links">
+                        <a href="#"><img src="assets/icons/TG.svg" width="24" height="24" alt="Telegram"></a>
+                        <a href="#"><img src="assets/icons/Vk.svg" width="24" height="24" alt="VK"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Аккаунт</h4>
+                    <ul>
+                        <li><a href="#">Личный кабинет</a></li>
+                        <li><a href="register.html">Вход / Регистрация</a></li>
+                        <li><a href="#">Корзина</a></li>
+                        <li><a href="#">Желаемое</a></li>
+                        <li><a href="#">Акции</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Соглашения</h4>
+                    <ul>
+                        <li><a href="#">Пользовательское соглашение</a></li>
+                        <li><a href="#">Правила пользования</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Copyright by Hrundelp 2026. У нас нет прав</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

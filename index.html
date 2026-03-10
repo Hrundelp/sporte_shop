@@ -1,18 +1,944 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Спортики</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <div>
-        <h1>
-            Hi!
-        </h1>
-        <h1>
-            Hi!
-        </h1>
-    </div>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">Спортики</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="register.html">Регистрация</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Что вы ищете?">
+                        <img src="assets\icons\поиск.svg" width="24" height="24" alt="Иконка">
+                    </div>
+                    <div class="icons">
+                        <button class="icon-btn">
+                            <img src="assets\icons\Избранное.svg" width="24" height="24" alt="Иконка">
+                        </button>
+                        <button class="icon-btn">
+                            <img src="assets\icons\Корзина.svg" width="24" height="24" alt="Иконка">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Sidebar Menu -->
+                    <aside class="sidebar-menu">
+                        <ul>
+                            <li><a href="#">Женщинам <span>›</span></a></li>
+                            <li><a href="#">Мужчинам <span>›</span></a></li>
+                            <li><a href="#">Одежда</a></li>
+                            <li><a href="#">Обувь</a></li>
+                            <li><a href="#">Аксессуары</a></li>
+                            <li><a href="#">Детям и подросткам</a></li>
+                            <li><a href="#">Спортивное питание</a></li>
+                            <li><a href="#">Тренажеры</a></li>
+                            <li><a href="#">Футбольные мячи</a></li>
+                        </ul>
+                    </aside>
+
+                    <!-- Hero Banner -->
+                    <div class="hero-banner">
+                        <div class="banner-slides" id="heroSlider">
+
+                            <!-- Слайд 1 -->
+                            <div class="slide" style="background-image: url('assets/images/image.jpg');">
+                                <div class="banner-content">
+                                    <div class="banner-text">
+                                        <div class="banner-brand">
+                                            <img src="assets/icons/Месси ГОООЛ.svg" width="40" height="49" alt="Месси">
+                                            <span>Форма Месси</span>
+                                        </div>
+                                        <h1>Скидка 10%<br>по купону</h1>
+                                        <a href="#" class="shop-now">Купить сейчас →</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Слайд 2 -->
+                            <div class="slide" style="background-image: url('assets/images/RONALDO.jpg');">
+                                <div class="banner-content">
+                                    <div class="banner-text">
+                                        <div class="banner-brand">
+                                            <span>Новости</span>
+                                        </div>
+                                        <h1>Новый набор<br>уже в продаже</h1>
+                                        <a href="#" class="shop-now">Смотреть →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- мне лень заглушку делать -->
+                        <div class="banner-dots">
+                            <span class="active" data-index="0"></span>
+                            <span data-index="1"></span>
+                            <!-- <span data-index="2"></span> — раскомментировать при добавлении 3-го слайда -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flash Sales -->
+        <section class="flash-sales">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-label">
+                            <div class="red-bar"></div>
+                            <span>Сегодня</span>
+                        </div>
+                        <h2 class="section-title">Распродажа</h2>
+                    </div>
+                    <div class="countdown-timer">
+                        <div class="time-unit">
+                            <span class="time-label">Дни</span>
+                            <span class="time-value">03</span>
+                        </div>
+                        <span class="time-separator">:</span>
+                        <div class="time-unit">
+                            <span class="time-label">Часы</span>
+                            <span class="time-value" id="hours">23</span>
+                        </div>
+                        <span class="time-separator">:</span>
+                        <div class="time-unit">
+                            <span class="time-label">Минуты</span>
+                            <span class="time-value" id="minutes">19</span>
+                        </div>
+                        <span class="time-separator">:</span>
+                        <div class="time-unit">
+                            <span class="time-label">Секунды</span>
+                            <span class="time-value" id="seconds">56</span>
+                        </div>
+                    </div>
+                    <div class="navigation-arrows">
+                        <button class="arrow-btn" onclick="scrollProducts('left')">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button class="arrow-btn" onclick="scrollProducts('right')">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="products-scroll" id="flashProducts">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="discount-badge">-40%</div>
+                            <img src="assets/images/перчатки.jpg"
+                                alt="Боксерские перчатки">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <!--надо бы решить че тут сделать -->
+                            <img src="assets\icons\Избранное.svg" width="34" height="34" alt="избранное">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Боксерские перчатки Twins Special FBGVL3-55</h3>
+                            <div class="price">
+                                <span class="current-price">6200₽</span>
+                                <span class="old-price">8760₽</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(88)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="discount-badge">-35%</div>
+                            <img src="assets/images/боксерки.jpg"
+                                alt="Боксерки">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Боксерки GRAWA</h3>
+                            <div class="price">
+                                <span class="current-price">3300₽</span>
+                                <span class="old-price">4200₽</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(28)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="discount-badge">-30%</div>
+                            <img src="assets/images/Лапы.jpg" alt="Лапы боксерские">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Лапы боксерские для тренировки</h3>
+                            <div class="price">
+                                <span class="current-price">1100₽</span>
+                                <span class="old-price">1600₽</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(198)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="discount-badge">-25%</div>
+                            <img src="assets/images/Груша.jpg"
+                                alt="Груша Боксерская">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Груша боксерская профессиональная</h3>
+                            <div class="price">
+                                <span class="current-price">11 000₽</span>
+                                <span class="old-price">13 900₽</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(9)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-label">
+                            <div class="red-bar"></div>
+                            <span>Категории</span>
+                        </div>
+                        <h2 class="section-title">Поиск по категориям</h2>
+                    </div>
+                </div>
+
+                <div class="categories-grid" id="categoriesGrid">
+                    <div class="category-card">
+                        <img src="assets/icons/Одежда.svg" width="56" height="56" alt="Иконка">
+                        <span>Одежда</span>
+                    </div>
+                    <div class="category-card">
+                        <img src="assets/icons/shoes.svg" width="56" height="56" alt="Иконка">
+                        <span>Обувь</span>
+                    </div>
+                    <div class="category-card">
+                        <img src="assets/icons/accessories.svg" width="56" height="56" alt="Иконка">
+                        <span>Аксессуары</span>
+                    </div>
+                    <div class="category-card active">
+                         <img src="assets/icons/race.svg" width="56" height="56" alt="Иконка">
+                        <span>Бег, ходьба</span>
+                    </div>
+                    <div class="category-card">
+                        <img src="assets/icons/swimming.svg" width="56" height="56" alt="Иконка">
+                        <span>Плавание</span>
+                    </div>
+                    <div class="category-card">
+                        <img src="assets/icons/Football.svg" width="56" height="56" alt="Иконка">
+                        <span>Футбол</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Selling -->
+        <section class="best-selling">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-label">
+                            <div class="red-bar"></div>
+                            <span>Этот Месяц</span>
+                        </div>
+                        <h2 class="section-title">Бестселлеры</h2>
+                    </div>
+                    <button class="view-all-btn">Просмотреть</button>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/sportik.jpg" alt="zubenkomixailpetrovich">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>gussi gang</h3>
+                            <div class="price">
+                                <span class="current-price">9999₽</span>
+                                <span class="old-price">9999₽</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(65)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/sportik.jpg" alt="zubenkomixailpetrovich">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>gussi gang</h3>
+                            <div class="price">
+                                <span class="current-price">9999₽</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(65)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/sportik.jpg" alt="zubenkomixailpetrovich">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>gussi gang</h3>
+                            <div class="price">
+                                <span class="current-price">9999₽</span>
+                                <span class="old-price">9999₽</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(65)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/sportik.jpg" alt="zubenkomixailpetrovich">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>gussi gang</h3>
+                            <div class="price">
+                                <span class="current-price">9999₽</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(65)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Music Banner 
+        <section class="music-banner">
+            <div class="container">
+                <div class="banner-box">
+                    <div class="banner-box-content">
+                        <span class="banner-label">Categories</span>
+                        <h2>Enhance Your<br>Music Experience</h2>
+                        <div class="timer-circles">
+                            <div class="timer-circle">
+                                <span class="timer-value">23</span>
+                                <span class="timer-label">Hours</span>
+                            </div>
+                            <div class="timer-circle">
+                                <span class="timer-value">05</span>
+                                <span class="timer-label">Days</span>
+                            </div>
+                            <div class="timer-circle">
+                                <span class="timer-value">59</span>
+                                <span class="timer-label">Minutes</span>
+                            </div>
+                            <div class="timer-circle">
+                                <span class="timer-value">35</span>
+                                <span class="timer-label">Seconds</span>
+                            </div>
+                        </div>
+                        <button class="buy-now-btn">Buy Now!</button>
+                    </div>
+                    <div class="banner-box-image">
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600" alt="JBL Speaker">
+                    </div>
+                </div>
+            </div>
+        </section>-->
+
+        <!-- Explore Products 
+        <section class="explore-products">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-label">
+                            <div class="red-bar"></div>
+                            <span>Our Products</span>
+                        </div>
+                        <h2 class="section-title">Explore Our Products</h2>
+                    </div>
+                    <div class="navigation-arrows">
+                        <button class="arrow-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button class="arrow-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="products-grid large">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1577003833154-a3bs0ce0b96c?w=400"
+                                alt="Dog Food">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Breed Dry Dog Food</h3>
+                            <div class="price">
+                                <span class="current-price">$100</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★☆☆</div>
+                                <span>(35)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400" alt="Camera">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>CANON EOS DSLR Camera</h3>
+                            <div class="price">
+                                <span class="current-price">$360</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(95)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="new-badge">NEW</div>
+                            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400" alt="Laptop">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>ASUS FHD Gaming Laptop</h3>
+                            <div class="price">
+                                <span class="current-price">$700</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(325)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400"
+                                alt="Curology Product Set">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Curology Product Set</h3>
+                            <div class="price">
+                                <span class="current-price">$500</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(145)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="new-badge">NEW</div>
+                            <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=400"
+                                alt="Kids Electric Car">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Kids Electric Car</h3>
+                            <div class="price">
+                                <span class="current-price">$960</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(65)</span>
+                                <div class="color-options">
+                                    <span class="color-dot" style="background: #FB1314;"></span>
+                                    <span class="color-dot" style="background: #DB4444;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400"
+                                alt="Jr. Zoom Soccer Cleats">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Jr. Zoom Soccer Cleats</h3>
+                            <div class="price">
+                                <span class="current-price">$1160</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★★</div>
+                                <span>(35)</span>
+                                <div class="color-options">
+                                    <span class="color-dot" style="background: #EEFF61;"></span>
+                                    <span class="color-dot" style="background: #DB4444;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="new-badge">NEW</div>
+                            <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400"
+                                alt="GP11 Shooter USB Gamepad">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>GP11 Shooter USB Gamepad</h3>
+                            <div class="price">
+                                <span class="current-price">$660</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(55)</span>
+                                <div class="color-options">
+                                    <span class="color-dot" style="background: #000;"></span>
+                                    <span class="color-dot" style="background: #DB4444;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400"
+                                alt="Quilted Satin Jacket">
+                            <div class="product-actions">
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Quilted Satin Jacket</h3>
+                            <div class="price">
+                                <span class="current-price">$660</span>
+                            </div>
+                            <div class="rating">
+                                <div class="stars">★★★★☆</div>
+                                <span>(55)</span>
+                                <div class="color-options">
+                                    <span class="color-dot" style="background: #184A48;"></span>
+                                    <span class="color-dot" style="background: #DB4444;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="view-all-btn-wrapper">
+                    <button class="view-all-btn">View All Products</button>
+                </div>
+            </div>
+        </section>-->
+
+        <!-- New Arrival 
+        <section class="new-arrival">
+            <div class="container">
+                <div class="section-title-group">
+                    <div class="section-label">
+                        <div class="red-bar"></div>
+                        <span>Featured</span>
+                    </div>
+                    <h2 class="section-title">New Arrival</h2>
+                </div>
+
+                <div class="arrival-grid">
+                    <div class="arrival-card large">
+                        <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600"
+                            alt="PlayStation 5">
+                        <div class="arrival-info">
+                            <h3>PlayStation 5</h3>
+                            <p>Black and White version of the PS5 coming out on sale.</p>
+                            <a href="#">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="arrival-card medium">
+                        <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?w=600"
+                            alt="Women's Collections">
+                        <div class="arrival-info">
+                            <h3>Women's Collections</h3>
+                            <p>Featured woman collections that give you another vibe.</p>
+                            <a href="#">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="arrival-card small">
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400" alt="Speakers">
+                        <div class="arrival-info">
+                            <h3>Speakers</h3>
+                            <p>Amazon wireless speakers</p>
+                            <a href="#">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="arrival-card small">
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400" alt="Perfume">
+                        <div class="arrival-info">
+                            <h3>Perfume</h3>
+                            <p>GUCCI INTENSE OUD EDP</p>
+                            <a href="#">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>-->
+
+        <!-- Services 
+        <section class="services">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="20" fill="currentColor" opacity="0.3" />
+                                <circle cx="20" cy="20" r="15" fill="currentColor" />
+                                <path d="M12 20h16M20 12v16" stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>FREE AND FAST DELIVERY</h3>
+                        <p>Free delivery for all orders over $140</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="20" fill="currentColor" opacity="0.3" />
+                                <circle cx="20" cy="20" r="15" fill="currentColor" />
+                                <path d="M16 18a4 4 0 0 1 8 0M14 28h12v-8H14z" stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>24/7 CUSTOMER SERVICE</h3>
+                        <p>Friendly 24/7 customer support</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="20" fill="currentColor" opacity="0.3" />
+                                <circle cx="20" cy="20" r="15" fill="currentColor" />
+                                <path d="M15 20l3 3 7-7" stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3>MONEY BACK GUARANTEE</h3>
+                        <p>We return money within 30 days</p>
+                    </div>
+                </div>
+            </div>
+        </section>-->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Спортики</h4>
+                    <p class="small">Хотите получать скидки первым?</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Введите свой e-mail">
+                        <button>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакты</h4>
+                    <p>Тут бы адресс какой нибудь,<br>г.Владимир, ул.Мира д.1.</p>
+                    <p>ggshop@gmail.com</p>
+                    <p>+8800-555-35-35</p>
+                    <div class="social-links">
+                        <a href="https://t.me/hrundelp" target="_blank"><img src="assets/icons/TG.svg" width="24" height="24" alt="Telegram"></a>
+                        <a href="https://vk.com/bratishkinoff" target="_blank"><img src="assets/icons/Vk.svg" width="24" height="24" alt="VK"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Аккаунт</h4>
+                    <ul>
+                        <li><a href="#">Личный кабинет</a></li>
+                        <li><a href="register.html">Вход / Регистрация</a></li>
+                        <li><a href="#">Корзина</a></li>
+                        <li><a href="#">Желаемое</a></li>
+                        <li><a href="#">Акции</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Соглашения</h4>
+                    <ul>
+                        <li><a href="#">Пользовательское соглашение</a></li>
+                        <li><a href="#">Правила пользования</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Copyright by Hrundelp 2026. У нас нет прав</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
+
 </html>

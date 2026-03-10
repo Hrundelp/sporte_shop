@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    color: #000;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+.navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 48px;
+}
+
+.nav-menu a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    border-bottom: 1px solid #000;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 200px;
+    font-size: 12px;
+}
+
+.search-box svg {
+    width: 20px;
+    height: 20px;
+}
+
+.icons {
+    display: flex;
+    gap: 16px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.icon-btn:hover {
+    opacity: 0.7;
+}
+
+/* Section Styles */
+section {
+    padding: 80px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+}
+
+.section-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.red-bar {
+    width: 20px;
+    height: 40px;
+    background: #DB4444;
+    border-radius: 4px;
+}
+
+.section-label span {
+    color: #DB4444;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1.44px;
+}
+
+/* Navigation Arrows */
+.navigation-arrows {
+    display: flex;
+    gap: 8px;
+}
+
+.arrow-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.arrow-btn:hover {
+    background: #DB4444;
+}
+
+.arrow-btn:hover svg {
+    stroke: white;
+}
+
+/* Footer */
+.footer {
+    background: #000;
+    color: white;
+    padding: 80px 0 24px 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-column h4 {
+    font-size: 20px;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.footer-column p {
+    font-size: 16px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.footer-column p.small {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 12px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: #DB4444; 
+}
+
+.newsletter {
+    display: flex;
+    border: 1.5px solid white;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+.newsletter input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    outline: none;
+    flex: 1;
+    min-width: 0;
+}
+
+.newsletter button {
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.social-links a:hover {
+    opacity: 0.6;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}

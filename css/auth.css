@@ -1,0 +1,240 @@
+.signup-container,
+.login-container {
+    display: flex;
+    max-width: 1305px;
+    margin: 140px auto 100px;
+    padding: 0 60px;
+    gap: 100px;
+    align-items: center;
+}
+
+.side-image {
+    width: 805px;
+    height: 781px;
+    background-color: #cbe4e8;
+    border-radius: 0 4px 4px 0;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.side-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Форма регистрации */
+.signup-form {
+    flex: 1;
+    max-width: 380px;
+    width: 100%;
+}
+
+.form-header {
+    margin-bottom: 48px;
+}
+
+.form-header h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 30px;
+    letter-spacing: 1.44px;
+    margin-bottom: 24px;
+    color: #000000;
+}
+
+.form-subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+/* Поля формы */
+.form-group {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.form-group input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 8px 0;
+    font-size: 16px;
+    line-height: 24px;
+    background: transparent;
+    outline: none;
+}
+
+.form-group label {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label {
+    top: -20px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.form-group input:focus {
+    border-bottom-color: #db4444;
+}
+
+/* Кнопка "Создать аккаунт" */
+.btn-create {
+    width: 100%;
+    background-color: #db4444;
+    color: #fafafa;
+    border: none;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-create:hover {
+    background-color: #c13939;
+}
+
+/* Ссылка "Уже есть аккаунт?" */
+.login-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.login-link a {
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: #db4444;
+    border-bottom-color: #db4444;
+}
+
+/* Стили страницы входа*/
+
+.login-page {
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+
+.login-form-wrapper {
+    flex: 1;
+}
+
+.login-form {
+    max-width: 380px;
+    width: 100%;
+}
+
+.login-header {
+    margin-bottom: 48px;
+}
+
+.login-header h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 30px;
+    letter-spacing: 1.44px;
+    color: #000000;
+    margin: 0 0 24px 0;
+}
+
+.login-header p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    margin: 0;
+}
+
+/* Кнопка "Войти" */
+.btn-login {
+    width: 100%;
+    background-color: #db4444;
+    color: #fafafa;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #c23d3d;
+}
+
+/* Забыли пароль? */
+.forgot-password {
+    font-size: 16px;
+    line-height: 24px;
+    color: #db4444;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+.toggle-password {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+input[type="password"] {
+    padding-right: 40px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.password-group {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.password-group input {
+    padding-right: 40px;
+}

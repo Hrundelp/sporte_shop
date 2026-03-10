@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
+<g>
+	<g>
+		<g>
+			<g>
+				<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;&#9;M70.883,215.734c11.692-8.725,25.186-15.083,39.745-18.448"/>
+				<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;&#9;M400.702,197.134c41.649,9.342,74.717,43.151,82.042,86.865L504,410.849c3.64,21.721-13.054,41.514-35.014,41.514H43.014&#10;&#9;&#9;&#9;&#9;&#9;c-21.96,0-38.654-19.793-35.014-41.514l21.256-126.85c3.032-18.091,10.472-34.486,21.106-48.153"/>
+				
+					<line style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="145.138" y1="194.552" x2="366.862" y2="194.552"/>
+				<g>
+					<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;&#9;&#9;M113.818,452.444V195.305c0-4.971,4.03-9.002,9.002-9.002h13.317c4.971,0,9.002,4.03,9.002,9.002v257.139H113.818z"/>
+					<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;&#9;&#9;M366.862,452.444V195.305c0-4.971,4.03-9.002,9.002-9.002h13.317c4.971,0,9.002,4.03,9.002,9.002v257.139H366.862z"/>
+				</g>
+				<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;&#9;M294.011,89.829c38.96,31.413,51.629,104.723,51.629,104.723"/>
+				<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;&#9;M167.44,194.552c0,0,13.043-73.606,51.545-104.913"/>
+				<g>
+					<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;&#9;&#9;M255.995,59.556c-12.999,0-24.448,3.46-34.504,9.239c-5.333,3.065-7.337,9.794-4.672,15.349l3.315,6.909&#10;&#9;&#9;&#9;&#9;&#9;&#9;c2.974,6.199,10.562,8.53,16.515,5.113c13.246-7.175,26.492-7.081,39.74,0.281c5.919,3.41,13.483,1.014,16.443-5.155&#10;&#9;&#9;&#9;&#9;&#9;&#9;l3.328-6.936c2.672-5.57,0.645-12.307-4.707-15.371C281.159,63.092,269.399,59.556,255.995,59.556z"/>
+				</g>
+			</g>
+			<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;M305.911,394.167h10.595c7.084,0,12.827-5.743,12.827-12.827v-32.795c0-22.035-17.863-39.898-39.898-39.898h-66.87&#10;&#9;&#9;&#9;&#9;c-22.035,0-39.898,17.863-39.898,39.898v32.795c0,7.084,5.743,12.827,12.827,12.827h80.732"/>
+			
+				<line style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" x1="221.822" y1="253.501" x2="290.178" y2="253.501"/>
+		</g>
+		<g>
+			<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;M75.604,452.363V328.647c0-11.046-8.954-20-20-20H25.125"/>
+			<path style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="&#10;&#9;&#9;&#9;&#9;M486.875,308.647h-30.478c-11.046,0-20,8.954-20,20v123.716"/>
+		</g>
+	</g>
+	
+		<polygon style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="&#10;&#9;&#9;13.858,376.922 75.604,376.922 75.604,347.834 18.333,347.834 &#9;"/>
+	
+		<polygon style="fill:none;stroke:#000000;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="&#10;&#9;&#9;498.142,376.922 436.396,376.922 436.396,347.834 493.667,347.834 &#9;"/>
+</g>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</svg>
