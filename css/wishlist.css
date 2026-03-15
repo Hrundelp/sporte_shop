@@ -1,0 +1,140 @@
+/* ══════════════════════════════════════════════
+   WISHLIST
+   ══════════════════════════════════════════════ */
+
+.wishlist-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.wishlist-count {
+    color: rgba(0,0,0,0.4);
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.btn-add-all {
+    background: transparent;
+    border: 2px solid #000;
+    color: #000;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-add-all:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Сетка карточек */
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 1200px) {
+    .wishlist-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+    .wishlist-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .wishlist-grid { grid-template-columns: 1fr; }
+}
+
+/* Карточка товара */
+.wishlist-card {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: box-shadow 0.25s;
+}
+.wishlist-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.wishlist-card-img {
+    position: relative;
+    background: #f5f5f5;
+    height: 220px;
+    overflow: hidden;
+}
+.wishlist-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+.wishlist-card:hover .wishlist-card-img img {
+    transform: scale(1.05);
+}
+
+.wishlist-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    color: rgba(0,0,0,0.4);
+    transition: color 0.2s, background 0.2s;
+}
+.wishlist-remove:hover {
+    background: #DB4444;
+    color: #fff;
+}
+
+.wishlist-card-info {
+    padding: 16px;
+}
+.wishlist-card-name {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    color: #000;
+}
+.wishlist-card-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #DB4444;
+    margin-bottom: 14px;
+}
+
+.wishlist-btn-cart {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.25s;
+    font-family: 'Poppins', sans-serif;
+}
+.wishlist-btn-cart:hover {
+    background: #DB4444;
+}

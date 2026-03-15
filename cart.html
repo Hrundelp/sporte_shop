@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина | Спортики</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><a href="index.html">Спортики</a></div>
+            <ul class="nav-menu">
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="about.html">О нас</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Что вы ищете?">
+                    <img src="assets/icons/поиск.svg" width="24" height="24" alt="Поиск">
+                </div>
+                <div class="icons">
+                    <a href="wishlist.html" class="icon-btn-wrap" aria-label="Избранное">
+                        <img src="assets/icons/Избранное.svg" width="24" height="24" alt="Избранное">
+                        <span class="wishlist-badge">0</span>
+                    </a>
+                    <a href="cart.html" class="icon-btn-wrap" aria-label="Корзина">
+                        <img src="assets/icons/Корзина.svg" width="24" height="24" alt="Корзина">
+                        <span class="cart-badge">0</span>
+                    </a>
+                    <div class="user-btn-wrap"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="cart-section">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Главная</a>
+                <span>›</span>
+                <span>Корзина</span>
+            </nav>
+            <h1 class="cart-title">Корзина</h1>
+            <div class="cart-layout" id="cartLayout"></div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Спортики</h4>
+                <p class="small">Хотите получать скидки первым?</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Введите свой e-mail">
+                    <button>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Контакты</h4>
+                <p>г. Владимир, ул. Мира, 24</p>
+                <p><a href="mailto:ggshop@gmail.com">ggshop@gmail.com</a></p>
+                <p><a href="tel:+78800555353">+8800-555-35-35</a></p>
+                <div class="social-links">
+                    <a href="https://t.me/hrundelp" target="_blank"><img src="assets/icons/TG.svg" width="24" height="24" alt="Telegram"></a>
+                    <a href="https://vk.com/bratishkinoff" target="_blank"><img src="assets/icons/Vk.svg" width="24" height="24" alt="VK"></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Аккаунт</h4>
+                <ul>
+                    <li><a href="profile.html">Личный кабинет</a></li>
+                    <li><a href="login.html">Вход / Регистрация</a></li>
+                    <li><a href="cart.html">Корзина</a></li>
+                    <li><a href="wishlist.html">Желаемое</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Соглашения</h4>
+                <ul>
+                    <li><a href="#">Пользовательское соглашение</a></li>
+                    <li><a href="#">Правила пользования</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Copyright by Hrundelp 2026. Все права защищены</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Модальное окно оформления заказа -->
+<div class="checkout-overlay" id="checkoutOverlay" role="dialog" aria-modal="true" aria-label="Оформление заказа">
+    <div class="checkout-modal">
+        <button class="checkout-close" id="checkoutClose" aria-label="Закрыть">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="checkout-header">
+            <h2>Оформление заказа</h2>
+            <p class="checkout-subtitle">Заполните данные для доставки</p>
+        </div>
+        <form id="checkoutForm" class="checkout-form" novalidate>
+            <fieldset class="checkout-fieldset">
+                <legend>Получатель</legend>
+                <div class="checkout-row">
+                    <div class="checkout-field">
+                        <label for="chkName">Имя и фамилия *</label>
+                        <input type="text" id="chkName" name="name" placeholder="Иван Иванов" autocomplete="name">
+                        <span class="field-error" id="errName"></span>
+                    </div>
+                    <div class="checkout-field">
+                        <label for="chkPhone">Телефон *</label>
+                        <input type="tel" id="chkPhone" name="phone" placeholder="+7 (900) 000-00-00" autocomplete="tel">
+                        <span class="field-error" id="errPhone"></span>
+                    </div>
+                </div>
+                <div class="checkout-field">
+                    <label for="chkEmail">Email *</label>
+                    <input type="email" id="chkEmail" name="email" placeholder="example@mail.ru" autocomplete="email">
+                    <span class="field-error" id="errEmail"></span>
+                </div>
+            </fieldset>
+            <fieldset class="checkout-fieldset">
+                <legend>Доставка</legend>
+                <div class="checkout-field">
+                    <label for="chkAddress">Адрес доставки *</label>
+                    <input type="text" id="chkAddress" name="address" placeholder="Город, улица, дом, квартира" autocomplete="street-address">
+                    <span class="field-error" id="errAddress"></span>
+                </div>
+                <div class="checkout-row">
+                    <div class="checkout-field">
+                        <label for="chkDelivery">Способ доставки</label>
+                        <select id="chkDelivery" name="delivery">
+                            <option value="courier">Курьер (1–3 дня) — 350 ₽</option>
+                            <option value="pickup">Самовывоз — Бесплатно</option>
+                            <option value="post">Почта России (5–14 дней) — 200 ₽</option>
+                        </select>
+                    </div>
+                    <div class="checkout-field">
+                        <label for="chkPayment">Способ оплаты</label>
+                        <select id="chkPayment" name="payment">
+                            <option value="card">Картой онлайн</option>
+                            <option value="cash">Наличными при получении</option>
+                            <option value="transfer">Переводом на карту</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="checkout-field">
+                    <label for="chkComment">Комментарий к заказу</label>
+                    <textarea id="chkComment" name="comment" placeholder="Например: позвонить за час до доставки" rows="3"></textarea>
+                </div>
+            </fieldset>
+            <div class="checkout-agree">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="chkAgree" name="agree">
+                    <span class="checkbox-custom"></span>
+                    <span>Я согласен с <a href="#" target="_blank">условиями обработки персональных данных</a> *</span>
+                </label>
+                <span class="field-error" id="errAgree"></span>
+            </div>
+            <div class="checkout-total-row" id="checkoutTotalRow"></div>
+            <button type="submit" class="btn-place-order">Подтвердить заказ</button>
+        </form>
+    </div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/store.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,99 +1,107 @@
+/**
+ * auth.js — авторизация и регистрация
+ * Использует Store для сохранения пользователя и toast-уведомлений
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. УНИВЕРСАЛЬНЫЙ ПЕРЕКЛЮЧАТЕЛЬ ПАРОЛЯ
-    const toggleButtons = document.querySelectorAll('.toggle-password');
-    
-    toggleButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+
+    // 1. ПЕРЕКЛЮЧАТЕЛЬ ПАРОЛЯ
+    document.querySelectorAll('.toggle-password').forEach(btn => {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
-            
             const container = this.closest('.password-group');
             if (!container) return;
-
             const input = container.querySelector('input');
             const openImg = this.querySelector('.eye-open');
             const closedImg = this.querySelector('.eye-closed');
-
             if (input && openImg && closedImg) {
                 const isPassword = input.type === 'password';
-                
-                // Меняем тип поля
                 input.type = isPassword ? 'text' : 'password';
-                
-                // Переключаем видимость иконок
-                if (isPassword) {
-                    openImg.classList.add('hidden');
-                    closedImg.classList.remove('hidden');
-                } else {
-                    openImg.classList.remove('hidden');
-                    closedImg.classList.add('hidden');
-                }
+                openImg.classList.toggle('hidden', isPassword);
+                closedImg.classList.toggle('hidden', !isPassword);
             }
         });
     });
 
-    // 2. ОБРАБОТКА ФОРМЫ РЕГИСТРАЦИИ (signupForm)
+    // 2. РЕГИСТРАЦИЯ
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
         signupForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
 
-            if (password.length < 6) {
-                alert('Пароль должен содержать минимум 6 символов');
-                return;
-            }
-            
-            console.log('Данные регистрации:', { name, email, password });
-            alert('Аккаунт успешно создан!');
+            if (!name) { Store.showToast('Введите имя', 'error'); return; }
+            if (!email) { Store.showToast('Введите email или телефон', 'error'); return; }
+            if (password.length < 6) { Store.showToast('Пароль — минимум 6 символов', 'error'); return; }
+
+            Store.setUser({ name, email, registeredAt: new Date().toISOString() });
+
+            // Сохраняем в профиль — телефон если ввели номер вместо email
+            const isPhone = !email.includes('@');
+            const existingProfile = JSON.parse(localStorage.getItem('sportiki_profile') || '{}');
+            localStorage.setItem('sportiki_profile', JSON.stringify({
+                ...existingProfile,
+                name,
+                email: isPhone ? '' : email,
+                phone: isPhone ? email : (existingProfile.phone || '')
+            }));
+
+            Store.showToast(`Добро пожаловать, ${name}!`);
+            setTimeout(() => window.location.href = 'index.html', 1200);
         });
     }
 
-    // 3. ОБРАБОТКА ФОРМЫ ВХОДА (loginForm)
+    // 3. ВХОД
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
-            const emailPhone = document.getElementById('emailPhone').value;
+            const emailPhone = document.getElementById('emailPhone').value.trim();
             const password = document.getElementById('password').value;
 
             if (!emailPhone || !password) {
-                alert('Пожалуйста, заполните все поля');
+                Store.showToast('Заполните все поля', 'error');
+                return;
+            }
+            if (password.length < 6) {
+                Store.showToast('Пароль слишком короткий', 'error');
                 return;
             }
 
-            console.log('Попытка входа:', { emailPhone });
-            alert('Вы успешно вошли!');
+            const name = emailPhone.includes('@')
+                ? emailPhone.split('@')[0]
+                : emailPhone;
+
+            Store.setUser({ name, email: emailPhone, loginAt: new Date().toISOString() });
+
+            // Обновляем имя в профиле, телефон/email не перезаписываем если уже есть
+            const existingProfile = JSON.parse(localStorage.getItem('sportiki_profile') || '{}');
+            const isPhone = !emailPhone.includes('@');
+            localStorage.setItem('sportiki_profile', JSON.stringify({
+                ...existingProfile,
+                name,
+                email: existingProfile.email || (isPhone ? '' : emailPhone),
+                phone: existingProfile.phone || (isPhone ? emailPhone : '')
+            }));
+
+            Store.showToast(`С возвращением, ${name}!`);
+            setTimeout(() => window.location.href = 'index.html', 1200);
         });
     }
 
-    // 4. ОБРАБОТКА ССЫЛКИ "ЗАБЫЛИ ПАРОЛЬ"
-    const forgotLink = document.querySelector('.forgot-password');
-    if (forgotLink) {
-        forgotLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Функция восстановления пароля в разработке');
-        });
-    }
+    // 4. ЗАБЫЛИ ПАРОЛЬ
+    document.querySelector('.forgot-password')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        Store.showToast('Функция восстановления пароля в разработке', 'error');
+    });
 
-    // 5. УЛУЧШЕНИЕ UX
-    const allInputs = document.querySelectorAll('.form-group input');
-    allInputs.forEach(input => {
-        // Проверка при загрузке (если браузер подставил данные)
-        if (input.value !== '') {
-            input.classList.add('has-value');
-        }
-        // Проверка при вводе
-        input.addEventListener('blur', () => {
-            if (input.value !== '') {
-                input.classList.add('has-value');
-            } else {
-                input.classList.remove('has-value');
-            }
-        });
+    // 5. UX: плавающий лейбл при автозаполнении браузером
+    document.querySelectorAll('.form-group input').forEach(input => {
+        const check = () => input.classList.toggle('has-value', input.value !== '');
+        check();
+        input.addEventListener('blur', check);
+        input.addEventListener('input', check);
     });
 });

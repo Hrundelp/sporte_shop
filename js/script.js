@@ -1,257 +1,245 @@
-function updateCountdown() {
-    const hours = document.getElementById('hours');
-    const minutes = document.getElementById('minutes');
-    const seconds = document.getElementById('seconds');
+/**
+ * script.js — логика главной страницы
+ * Требует store.js подключённого ДО этого файла
+ */
 
-    let h = parseInt(hours.textContent);
-    let m = parseInt(minutes.textContent);
-    let s = parseInt(seconds.textContent);
-
-    s--;
-
-    if (s < 0) {
-        s = 59;
-        m--;
+// ─── COUNTDOWN TIMER ─────────────────────────────────────────────────────────
+// Целевая дата — 3 дня от первого запуска, сохраняем в localStorage
+function getCountdownTarget() {
+    const key = 'sportiki_sale_end';
+    let target = localStorage.getItem(key);
+    if (!target) {
+        // Устанавливаем дату окончания — 3 дня с момента первого посещения
+        target = Date.now() + 3 * 24 * 60 * 60 * 1000;
+        localStorage.setItem(key, target);
     }
-
-    if (m < 0) {
-        m = 59;
-        h--;
-    }
-
-    if (h < 0) {
-        h = 23;
-    }
-
-    hours.textContent = String(h).padStart(2, '0');
-    minutes.textContent = String(m).padStart(2, '0');
-    seconds.textContent = String(s).padStart(2, '0');
+    return parseInt(target);
 }
 
-setInterval(updateCountdown, 1000);
+function updateCountdown() {
+    const daysEl    = document.getElementById('days');
+    const hoursEl   = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    if (!hoursEl || !minutesEl || !secondsEl) return;
 
-// Products Scroll
+    const remaining = getCountdownTarget() - Date.now();
+
+    if (remaining <= 0) {
+        // Таймер истёк — показываем нули и останавливаем
+        if (daysEl)    daysEl.textContent    = '00';
+        hoursEl.textContent   = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        clearInterval(countdownInterval);
+        return;
+    }
+
+    const totalSeconds = Math.floor(remaining / 1000);
+    const d = Math.floor(totalSeconds / 86400);
+    const h = Math.floor((totalSeconds % 86400) / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+
+    if (daysEl)    daysEl.textContent    = String(d).padStart(2, '0');
+    hoursEl.textContent   = String(h).padStart(2, '0');
+    minutesEl.textContent = String(m).padStart(2, '0');
+    secondsEl.textContent = String(s).padStart(2, '0');
+
+    // Синхронизируем баннерный таймер (promo-banner)
+    const bDays = document.getElementById('bannerDays');
+    const bHours = document.getElementById('bannerHours');
+    const bMinutes = document.getElementById('bannerMinutes');
+    const bSeconds = document.getElementById('bannerSeconds');
+    if (bDays)    bDays.textContent    = String(d).padStart(2, '0');
+    if (bHours)   bHours.textContent   = String(h).padStart(2, '0');
+    if (bMinutes) bMinutes.textContent = String(m).padStart(2, '0');
+    if (bSeconds) bSeconds.textContent = String(s).padStart(2, '0');
+}
+const countdownInterval = setInterval(updateCountdown, 1000);
+updateCountdown(); // запускаем сразу без задержки в 1 сек
+
+// ─── PRODUCTS SCROLL ─────────────────────────────────────────────────────────
 function scrollProducts(direction) {
     const container = document.getElementById('flashProducts');
-    const scrollAmount = 300;
-
-    if (direction === 'left') {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
+    if (!container) return;
+    container.scrollBy({ left: direction === 'left' ? -300 : 300, behavior: 'smooth' });
 }
 
-// Categories Scroll
+// ─── CATEGORIES SCROLL ───────────────────────────────────────────────────────
 function scrollCategories(direction) {
     const container = document.getElementById('categoriesGrid');
-    const scrollAmount = 300;
-
-    if (direction === 'left') {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
+    if (!container) return;
+    container.scrollBy({ left: direction === 'left' ? -300 : 300, behavior: 'smooth' });
 }
 
-// Hero Banner Dots
-const slider = document.getElementById('heroSlider');
-const dots = document.querySelectorAll('.banner-dots span');
-let currentSlide = 0;
-let slideInterval;
+document.addEventListener('DOMContentLoaded', () => {
 
-function updateSlider(index) {
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-
-
-    slider.style.transform = `translateX(-${index * 100}%)`;
-    currentSlide = index;
-}
-
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        updateSlider(index);
-        restartAutoPlay(); // Сброс таймера при ручном переключении
-    });
-});
-
-function startAutoPlay() {
-    slideInterval = setInterval(() => {
-        let next = (currentSlide + 1) % dots.length;
-        updateSlider(next);
-    }, 5000);
-}
-
-function restartAutoPlay() {
-    clearInterval(slideInterval);
-    startAutoPlay();
-}
-
-startAutoPlay();
-// Smooth Scroll for Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Add to Cart functionality (placeholder)
-function addToCart(productName) {
-    alert(`${productName} добавлен в корзину!`);
-}
-
-// Wishlist functionality (placeholder)
-function addToWishlist(productName) {
-    alert(`${productName} добавлен в избранное!`);
-}
-
-// Newsletter subscription
-const newsletterForm = document.querySelector('.newsletter');
-if (newsletterForm) {
-    const button = newsletterForm.querySelector('button');
-    const input = newsletterForm.querySelector('input');
-
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const email = input.value.trim();
-
-        if (email && email.includes('@')) {
-            alert(`Спасибо за подписку! Мы отправили письмо на ${email}`);
-            input.value = '';
-        } else {
-            alert('Пожалуйста, введите корректный e-mail');
-        }
-    });
-}
-
-// Category Card Active State
-const categoryCards = document.querySelectorAll('.category-card');
-categoryCards.forEach(card => {
-    card.addEventListener('click', () => {
-        categoryCards.forEach(c => c.classList.remove('active'));
-        card.classList.add('active');
-    });
-});
-
-// Product Image Hover Effect
-const productCards = document.querySelectorAll('.product-card');
-productCards.forEach(card => {
-    const heartBtn = card.querySelector('.action-btn');
-    if (heartBtn) {
-        heartBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const productName = card.querySelector('h3').textContent;
-            addToWishlist(productName);
-        });
-    }
-});
-
-// Mobile Menu Toggle (for responsive design)
-function createMobileMenu() {
+    // ─── БУРГЕР-МЕНЮ ─────────────────────────────────────────────────────────
     const navbar = document.querySelector('.navbar .container');
-    const menuBtn = document.createElement('button');
-    menuBtn.className = 'mobile-menu-btn';
-    menuBtn.innerHTML = `
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-    `;
+    const navMenu = document.querySelector('.nav-menu');
 
-    if (window.innerWidth <= 768) {
-        const logo = navbar.querySelector('.logo');
-        logo.after(menuBtn);
+    if (navbar && navMenu) {
+        // Создаём кнопку бургера
+        const burger = document.createElement('button');
+        burger.className = 'burger-btn';
+        burger.setAttribute('aria-label', 'Меню');
+        burger.innerHTML = `
+            <span></span>
+            <span></span>
+            <span></span>`;
+        navbar.insertBefore(burger, navMenu);
 
-        menuBtn.addEventListener('click', () => {
-            const menu = navbar.querySelector('.nav-menu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('open');
+            navMenu.classList.toggle('open');
+        });
+
+        // Закрываем при клике вне меню
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target)) {
+                burger.classList.remove('open');
+                navMenu.classList.remove('open');
+            }
         });
     }
-}
 
-// Initialize mobile menu on load
-if (window.innerWidth <= 768) {
-    createMobileMenu();
-}
+    // ─── ЖИВОЙ ПОИСК ─────────────────────────────────────────────────────────
+    const searchInput = document.querySelector('.search-box input');
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            const allCards = document.querySelectorAll('.product-card');
 
-// Scroll to top button
-function createScrollTopBtn() {
-    const scrollBtn = document.createElement('button');
-    scrollBtn.className = 'scroll-to-top';
-    scrollBtn.innerHTML = `
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-            <path d="M12 19V5M5 12l7-7 7 7"/>
-        </svg>
-    `;
-    scrollBtn.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: #DB4444;
-        border: none;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        z-index: 1000;
-        transition: all 0.3s;
-    `;
+            if (!query) {
+                allCards.forEach(card => card.style.display = '');
+                return;
+            }
 
-    document.body.appendChild(scrollBtn);
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            scrollBtn.style.display = 'flex';
-        } else {
-            scrollBtn.style.display = 'none';
-        }
-    });
-
-    scrollBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+            allCards.forEach(card => {
+                const name = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                card.style.display = name.includes(query) ? '' : 'none';
+            });
         });
-    });
 
-    scrollBtn.addEventListener('mouseenter', () => {
-        scrollBtn.style.transform = 'scale(1.1)';
-    });
+        // Очищаем поиск при нажатии Escape
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                document.querySelectorAll('.product-card').forEach(c => c.style.display = '');
+                searchInput.blur();
+            }
+        });
+    }
 
-    scrollBtn.addEventListener('mouseleave', () => {
-        scrollBtn.style.transform = 'scale(1)';
-    });
-}
+    // ─── ФИЛЬТРАЦИЯ ПО КАТЕГОРИЯМ ─────────────────────────────────────────────
+    // Маппинг названий категорий → ключевые слова для поиска в товарах
+    const CATEGORY_KEYWORDS = {
+        'Одежда':      ['костюм', 'футболка', 'шорты', 'форма', 'gussi'],
+        'Обувь':       ['кроссовки', 'бутсы', 'боксерки', 'обувь'],
+        'Аксессуары':  ['перчатки', 'лапы', 'бинт', 'скакалка'],
+        'Бег, ходьба': ['кроссовки', 'беговые'],
+        'Плавание':    ['купальник', 'очки', 'шапочка'],
+        'Футбол':      ['бутсы', 'мяч', 'форма', 'футбол'],
+    };
 
-createScrollTopBtn();
+    document.querySelectorAll('.category-card').forEach(card => {
+        card.addEventListener('click', () => {
+            // Переключаем активный класс
+            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
 
-// Lazy loading for images
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.classList.add('loaded');
-                observer.unobserve(img);
+            const categoryName = card.querySelector('span')?.textContent.trim();
+            const keywords = CATEGORY_KEYWORDS[categoryName] || [];
+
+            const allCards = document.querySelectorAll('.product-card');
+
+            if (!keywords.length) {
+                allCards.forEach(c => c.style.display = '');
+                return;
+            }
+
+            allCards.forEach(productCard => {
+                const name = productCard.querySelector('h3')?.textContent.toLowerCase() || '';
+                const matches = keywords.some(kw => name.includes(kw));
+                productCard.style.display = matches ? '' : 'none';
+            });
+
+            // Прокручиваем к товарам
+            const firstSection = document.querySelector('.flash-sales, .best-selling');
+            if (firstSection) {
+                firstSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
 
-    document.querySelectorAll('img').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
+    // ─── HERO SLIDER ─────────────────────────────────────────────────────────
+    const slider = document.getElementById('heroSlider');
+    const dots   = document.querySelectorAll('.banner-dots span');
+    let currentSlide = 0;
+    let slideInterval;
 
+    function updateSlider(index) {
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (dots[index]) dots[index].classList.add('active');
+        if (slider) slider.style.transform = `translateX(-${index * 100}%)`;
+        currentSlide = index;
+    }
+
+    if (dots.length > 0) {
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                updateSlider(index);
+                clearInterval(slideInterval);
+                slideInterval = setInterval(() => updateSlider((currentSlide + 1) % dots.length), 5000);
+            });
+        });
+        slideInterval = setInterval(() => updateSlider((currentSlide + 1) % dots.length), 5000);
+    }
+
+    // ─── КНОПКИ "В ИЗБРАННОЕ" (карточки товаров) ─────────────────────────────
+    // Работает для карточек с data-product-id на кнопке .action-btn
+    document.querySelectorAll('.action-btn[data-product-id]').forEach(btn => {
+        const id = btn.dataset.productId;
+        if (Store.isInWishlist(id)) btn.classList.add('in-wishlist');
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const product = {
+                id,
+                name:  btn.dataset.name  || btn.closest('.product-card')?.querySelector('h3')?.textContent || 'Товар',
+                price: parseInt(btn.dataset.price) || 0,
+                image: btn.dataset.image || ''
+            };
+            const added = Store.toggleWishlist(product);
+            btn.classList.toggle('in-wishlist', added);
+        });
+    });
+
+    // ─── КНОПКИ "В КОРЗИНУ" ──────────────────────────────────────────────────
+    document.querySelectorAll('.btn-to-cart').forEach(btn => {
+        btn.addEventListener('click', () => {
+            Store.addToCart({
+                id:    btn.dataset.productId,
+                name:  btn.dataset.name,
+                price: parseInt(btn.dataset.price),
+                image: btn.dataset.image || ''
+            });
+        });
+    });
+
+    // ─── NEWSLETTER ──────────────────────────────────────────────────────────
+    document.querySelectorAll('.newsletter').forEach(form => {
+        form.querySelector('button')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            const input = form.querySelector('input');
+            const email = input?.value.trim();
+            if (email && email.includes('@')) {
+                Store.showToast(`Подписка оформлена на ${email}`);
+                input.value = '';
+            } else {
+                Store.showToast('Введите корректный e-mail', 'error');
+            }
+        });
+    });
+});

@@ -1,41 +1,32 @@
-/* --- 1200px (Планшеты в альбомной ориентации и маленькие ноутбуки) --- */
+/* ══════════════════════════════════════════════
+   1200px — планшеты альбомные / маленькие ноутбуки
+   ══════════════════════════════════════════════ */
 @media (max-width: 1200px) {
-    .container {
-        max-width: 960px;
-    }
+    .container { max-width: 960px; }
 
-    /* Главная */
     .products-grid,
-    .products-grid.large {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .products-grid.large { grid-template-columns: repeat(3, 1fr); }
 
-    .categories-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    .categories-grid { grid-template-columns: repeat(4, 1fr); }
 
-    /* Регистрация */
     .signup-container {
         padding: 0 40px;
         gap: 60px;
         margin: 80px auto;
     }
-
     .side-image {
         width: 500px;
         height: 600px;
     }
 }
 
-/* --- 992px (Средние экраны) --- */
+/* ══════════════════════════════════════════════
+   992px — средние экраны
+   ══════════════════════════════════════════════ */
 @media (max-width: 992px) {
-    .container {
-        max-width: 720px;
-    }
+    .container { max-width: 720px; }
 
-    .hero-content {
-        flex-direction: column;
-    }
+    .hero-content { flex-direction: column; }
 
     .sidebar-menu {
         width: 100%;
@@ -46,66 +37,55 @@
     }
 
     .products-grid,
-    .products-grid.large {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .products-grid.large { grid-template-columns: repeat(2, 1fr); }
 
-    .categories-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .categories-grid { grid-template-columns: repeat(3, 1fr); }
 
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
+    .footer-content { grid-template-columns: repeat(2, 1fr); gap: 40px; }
 
     .banner-box {
         flex-direction: column;
         text-align: center;
         padding: 40px 20px;
     }
-
-    .banner-box-image img {
-        max-width: 100%;
-        height: auto;
-    }
+    .banner-box-image img { max-width: 100%; height: auto; }
 }
 
-/* --- 900px (Специфическая точка для формы регистрации) --- */
+/* ══════════════════════════════════════════════
+   900px — формы auth / cart / product
+   ══════════════════════════════════════════════ */
 @media (max-width: 900px) {
-    .signup-container {
+    .signup-container,
+    .login-container {
         flex-direction: column;
         padding: 0 20px;
+        gap: 40px;
         margin: 40px auto;
     }
-
     .side-image {
         width: 100%;
         max-width: 500px;
         height: 350px;
         border-radius: 4px;
     }
+    .signup-form { max-width: 100%; width: 100%; }
 
-    .signup-form {
-        max-width: 100%;
-        width: 100%;
-    }
+    /* Карточка товара */
+    .product-layout { grid-template-columns: 1fr; gap: 32px; }
+    .product-gallery { flex-direction: column-reverse; }
+    .gallery-thumbs { flex-direction: row; width: 100%; }
+    .thumb-btn { width: 64px; height: 64px; }
 }
 
-/* --- 768px (Планшеты и большие телефоны) --- */
+/* ══════════════════════════════════════════════
+   768px — планшеты / большие телефоны
+   ══════════════════════════════════════════════ */
 @media (max-width: 768px) {
-    .container {
-        max-width: 540px;
-    }
+    .container { max-width: 540px; }
 
-    /* Прячем меню, тут обычно делают "бургер" */
-    .nav-menu {
-        display: none;
-    }
+    .nav-menu { display: none; }
 
-    .search-box input {
-        width: 120px;
-    }
+    .search-box input { width: 120px; }
 
     .section-header {
         flex-direction: column;
@@ -114,41 +94,91 @@
     }
 
     .products-grid,
-    .products-grid.large {
-        grid-template-columns: 1fr;
-    }
+    .products-grid.large { grid-template-columns: 1fr; }
 
-    .categories-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
+    .services-grid { grid-template-columns: 1fr; }
 
-    .arrival-grid {
-        grid-template-columns: 1fr;
-    }
+    .arrival-grid { grid-template-columns: 1fr; }
+    .arrival-card.large { height: 300px; }
 
-    .arrival-card.large {
-        height: 300px;
-    }
+    .footer-content { grid-template-columns: 1fr; }
 
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
+    section { padding: 40px 0; }
+}
 
-    section {
-        padding: 40px 0;
+/* ══════════════════════════════════════════════
+   640px — корзина мобильная
+   ══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .cart-table-head { display: none; }
+    .cart-item {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 12px;
     }
+    .cart-item-product { grid-column: 1 / -1; }
+    .cart-item-remove { justify-self: end; }
+}
+
+/* ─── Каталог и товар ──────────────────────────── */
+@media (max-width: 1100px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
-
-    .signup-container,
-    .login-container {
-        flex-direction: column;
-        padding: 0 20px;
-        gap: 40px;
+    .catalog-layout {
+        grid-template-columns: 1fr;
     }
+    .catalog-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0 32px;
+    }
+    .sidebar-block {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .catalog-grid { grid-template-columns: 1fr; }
+    .catalog-sidebar { grid-template-columns: 1fr; }
+}
+/* ─── Responsive ──────────────────────────────── */
+@media (max-width: 900px) {
+    .product-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .product-gallery {
+        flex-direction: column-reverse;
+    }
+    .gallery-thumbs {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+    }
+    .thumb-btn {
+        width: 64px;
+        height: 64px;
+        flex-shrink: 0;
+    }
+    .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-title { font-size: 22px; }
+    .product-price { font-size: 26px; }
+    .product-actions-block {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .qty-selector { justify-content: center; }
+    .btn-add-to-cart { width: 100%; }
+    .related-grid { grid-template-columns: 1fr; }
 }

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | Спортики</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo"><a href="index.html">Спортики</a></div>
+                <ul class="nav-menu">
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="contacts.html" class="active">Контакты</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Что вы ищете?">
+                        <img src="assets/icons/поиск.svg" width="24" height="24" alt="Поиск">
+                    </div>
+                    <div class="icons">
+                        <a href="wishlist.html" class="icon-btn-wrap" aria-label="Избранное">
+                            <img src="assets/icons/Избранное.svg" width="24" height="24" alt="Избранное">
+                            <span class="wishlist-badge">0</span>
+                        </a>
+                        <a href="cart.html" class="icon-btn-wrap" aria-label="Корзина">
+                            <img src="assets/icons/Корзина.svg" width="24" height="24" alt="Корзина">
+                            <span class="cart-badge">0</span>
+                        </a>
+                        <div class="user-btn-wrap"></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contacts-section">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Главная</a>
+                    <span>›</span>
+                    <span>Контакты</span>
+                </nav>
+
+                <div class="contacts-layout">
+
+                    <!-- Левая колонка — контактная информация -->
+                    <div class="contacts-info">
+                        <div class="contact-block">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DB4444"
+                                    stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.13 1 .36 1.97.71 2.91a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.97-.97a2 2 0 0 1 2.11-.45c.94.35 1.91.58 2.91.71A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Телефон</h3>
+                                <p>+8800-555-35-35</p>
+                                <p class="contact-hint">Ежедневно с 9:00 до 21:00</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-block">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DB4444"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>ggshop@gmail.com</p>
+                                <p class="contact-hint">Ответим в течение 24 часов</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-block">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DB4444"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Адрес</h3>
+                                <p>г. Владимир, ул. Мира, 24</p>
+                                <p class="contact-hint">Пн–Вс: 10:00 – 20:00</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-map">
+                            <script type="text/javascript" charset="utf-8" async
+                                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A62997e682d98349eb7d0facc6a17cbbcc2f975b1f869fff6c5aef7d81f950760&amp;width=100%&amp;height=300&amp;lang=ru_RU&amp;scroll=false">
+                                </script>
+                        </div>
+                        
+                        <div class="contact-socials">
+                            <p>Мы в социальных сетях:</p>
+                            <div class="social-links">
+                                <a href="https://t.me/hrundelp" target="_blank"><img src="assets/icons/telega_black.svg"
+                                        width="28" height="28" alt="Telegram"></a>
+                                <a href="https://vk.com/bratishkinoff" target="_blank"><img
+                                        src="assets/icons/vk_black.svg" width="28" height="28" alt="VK"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Правая колонка — форма обратной связи -->
+                    <div class="contacts-form-wrap">
+                        <h2>Напишите нам</h2>
+                        <p class="contacts-form-subtitle">Заполните форму и мы свяжемся с вами в ближайшее время</p>
+                        <form id="contactForm" class="contacts-form" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" id="contactName" name="name" required>
+                                    <label for="contactName">Ваше имя</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="contactEmail" name="email" required>
+                                    <label for="contactEmail">Email</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="contactSubject" name="subject" required>
+                                <label for="contactSubject">Тема</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                                <label for="contactMessage">Сообщение</label>
+                            </div>
+                            <button type="submit" class="btn-contact-submit">Отправить сообщение</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Спортики</h4>
+                    <p class="small">Хотите получать скидки первым?</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Введите свой e-mail">
+                        <button>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакты</h4>
+                    <p>г.Владимир, ул.Мира д.1.</p>
+                    <p><a href="mailto:ggshop@gmail.com">ggshop@gmail.com</a></p>
+                    <p><a href="tel:+78800555353">+8800-555-35-35</a></p>
+                    <div class="social-links">
+                        <a href="https://t.me/hrundelp" target="_blank"><img src="assets/icons/TG.svg" width="24"
+                                height="24" alt="Telegram"></a>
+                        <a href="https://vk.com/bratishkinoff" target="_blank"><img src="assets/icons/Vk.svg" width="24"
+                                height="24" alt="VK"></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Аккаунт</h4>
+                    <ul>
+                        <li><a href="profile.html">Личный кабинет</a></li>
+                        <li><a href="login.html">Вход / Регистрация</a></li>
+                        <li><a href="cart.html">Корзина</a></li>
+                        <li><a href="wishlist.html">Желаемое</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Соглашения</h4>
+                    <ul>
+                        <li><a href="#">Пользовательское соглашение</a></li>
+                        <li><a href="#">Правила пользования</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; Copyright by Hrundelp 2026. Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/store.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Плавающий лейбл для textarea
+            document.querySelectorAll('.contacts-form .form-group textarea').forEach(el => {
+                const check = () => el.classList.toggle('has-value', el.value !== '');
+                check();
+                el.addEventListener('input', check);
+                el.addEventListener('blur', check);
+            });
+
+            // Отправка формы
+            document.getElementById('contactForm')?.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('contactName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const subject = document.getElementById('contactSubject').value.trim();
+                const message = document.getElementById('contactMessage').value.trim();
+
+                if (!name || !email || !subject || !message) {
+
+                    Store.showToast('Заполните все поля', 'error');
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    Store.showToast('Введите корректный email', 'error');
+                    return;
+                }
+
+                Store.showToast('Сообщение отправлено! Мы свяжемся с вами скоро.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+
+</html>

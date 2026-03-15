@@ -17,7 +17,9 @@ body {
     padding: 0 15px;
 }
 
-/* Header */
+/* ══════════════════════════════════════════════
+   HEADER
+   ══════════════════════════════════════════════ */
 .navbar {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 20px 0;
@@ -25,14 +27,20 @@ body {
 
 .navbar .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 60px;
 }
 
 .logo {
     font-size: 24px;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
+}
+
+.logo a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .nav-menu {
@@ -57,6 +65,7 @@ body {
     display: flex;
     align-items: center;
     gap: 24px;
+    margin-left: auto;
 }
 
 .search-box {
@@ -72,32 +81,211 @@ body {
     border: none;
     background: transparent;
     outline: none;
-    width: 200px;
+    width: 350px;
     font-size: 12px;
-}
-
-.search-box svg {
-    width: 20px;
-    height: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .icons {
     display: flex;
+    align-items: center;
     gap: 16px;
 }
 
-.icon-btn {
-    background: transparent;
+
+/* ══════════════════════════════════════════════
+   HEADER AUTH — кнопка входа / аватар / дропдаун
+   ══════════════════════════════════════════════ */
+
+.btn-header-login {
+    background: #DB4444;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.25s;
+    white-space: nowrap;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-header-login:hover { background: #c23d3d; }
+
+.user-avatar-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #DB4444;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s;
+}
+.user-avatar-btn:hover { background: #c23d3d; }
+
+.avatar-initials {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+    line-height: 1;
 }
 
-.icon-btn:hover {
-    opacity: 0.7;
+.user-dropdown-wrap {
+    position: relative;
 }
 
-/* Section Styles */
+.user-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 220px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 1000;
+}
+.user-dropdown-wrap:hover .user-dropdown,
+.user-dropdown-wrap:focus-within .user-dropdown {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.user-dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.user-dropdown-header .avatar-initials {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #DB4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.user-dropdown-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.user-dropdown-email {
+    font-size: 12px;
+    color: rgba(0,0,0,0.45);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.user-dropdown-menu {
+    list-style: none;
+    padding: 8px 0;
+}
+.user-dropdown-menu li a,
+.user-dropdown-menu li .logout-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    font-family: 'Poppins', sans-serif;
+}
+.user-dropdown-menu li a:hover,
+.user-dropdown-menu li .logout-btn:hover {
+    background: #f5f5f5;
+    color: #DB4444;
+}
+
+/* ══════════════════════════════════════════════
+   ИКОНКИ С БЕЙДЖЕМ
+   ══════════════════════════════════════════════ */
+.icon-btn-wrap {
+    position: relative;
+    display: inline-flex;
+    text-decoration: none;
+}
+.cart-badge,
+.wishlist-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #DB4444;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════
+   TOAST УВЕДОМЛЕНИЯ
+   ══════════════════════════════════════════════ */
+#toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.3s, transform 0.3s;
+    max-width: 320px;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+.toast-success svg { color: #00c853; }
+.toast-error   svg { color: #DB4444; }
+
+/* Кнопка избранного — активное состояние */
+.action-btn.in-wishlist svg {
+    fill: #DB4444;
+    stroke: #DB4444;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION STYLES
+   ══════════════════════════════════════════════ */
 section {
     padding: 80px 0;
 }
@@ -168,7 +356,29 @@ section {
     stroke: white;
 }
 
-/* Footer */
+/* View all button */
+.view-all-btn {
+    background: #DB4444;
+    color: white;
+    border: none;
+    padding: 16px 48px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+}
+
+.view-all-btn:hover {
+    background: #c23838;
+}
+
+/* ══════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════ */
 .footer {
     background: #000;
     color: white;
@@ -216,7 +426,7 @@ section {
 }
 
 .footer-column a:hover {
-    color: #DB4444; 
+    color: #DB4444;
 }
 
 .newsletter {
@@ -235,6 +445,11 @@ section {
     outline: none;
     flex: 1;
     min-width: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.newsletter input::placeholder {
+    color: rgba(255,255,255,0.5);
 }
 
 .newsletter button {
@@ -262,4 +477,327 @@ section {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.5);
     font-size: 14px;
+}
+
+/* ══════════════════════════════════════════════
+   BREADCRUMB (cart, product)
+   ══════════════════════════════════════════════ */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(0,0,0,0.45);
+    margin-bottom: 32px;
+    margin-top: 40px;
+}
+.breadcrumb a {
+    color: rgba(0,0,0,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.breadcrumb a:hover { color: #DB4444; }
+.breadcrumb span:last-child { color: #000; }
+
+/* ══════════════════════════════════════════════
+   BURGER MENU
+   ══════════════════════════════════════════════ */
+.burger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+.burger-btn span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #000;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.burger-btn.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.burger-btn.open span:nth-child(2) { opacity: 0; }
+.burger-btn.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+    .burger-btn { display: flex; }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        gap: 0;
+        padding: 12px 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        z-index: 1000;
+        border-top: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-menu.open { display: flex; }
+    .nav-menu li { padding: 0; }
+    .nav-menu a {
+        display: block;
+        padding: 12px 24px;
+        font-size: 15px;
+        border-bottom: none !important;
+    }
+    .nav-menu a:hover { background: #f5f5f5; color: #DB4444; }
+
+    .header { position: relative; }
+}
+
+/* ══════════════════════════════════════════════
+   SCROLL TO TOP
+   ══════════════════════════════════════════════ */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #DB4444;
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(219,68,68,0.4);
+    z-index: 999;
+    transition: transform 0.2s;
+}
+/* ══════════════════════════════════════════════
+   SEARCH DROPDOWN
+   ══════════════════════════════════════════════ */
+.search-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    min-width: 340px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    z-index: 1500;
+    overflow: hidden;
+    display: none;
+}
+.search-dropdown.open {
+    display: block;
+    animation: searchDdOpen 0.18s ease;
+}
+@keyframes searchDdOpen {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Элемент результата */
+.search-dd-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #000;
+    transition: background 0.15s;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.search-dd-item:last-of-type { border-bottom: none; }
+.search-dd-item:hover { background: #f9f9f9; }
+
+.search-dd-item img {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #f5f5f5;
+    flex-shrink: 0;
+}
+.search-dd-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.search-dd-name {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.search-dd-price {
+    font-size: 13px;
+    color: #DB4444;
+    font-weight: 600;
+}
+.search-dd-badge {
+    font-size: 11px;
+    font-weight: 700;
+    background: #DB4444;
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+/* Пустой результат */
+.search-dd-empty {
+    padding: 20px 16px;
+    font-size: 13px;
+    color: rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+/* Ссылка «все результаты» */
+.search-dd-all {
+    display: block;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #DB4444;
+    text-decoration: none;
+    text-align: center;
+    background: rgba(219,68,68,0.04);
+    border-top: 1px solid rgba(219,68,68,0.1);
+    transition: background 0.15s;
+}
+.search-dd-all:hover { background: rgba(219,68,68,0.1); }
+
+/* ══════════════════════════════════════════════
+   @KEYFRAMES ANIMATIONS
+   ══════════════════════════════════════════════ */
+
+/* ── 1. Появление секций при загрузке страницы ── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero-секция */
+.hero-section {
+    animation: fadeInUp 0.5s ease both;
+}
+
+/* Секции главной — каскадом */
+.flash-sales    { animation: fadeInUp 0.5s 0.1s ease both; }
+.categories     { animation: fadeInUp 0.5s 0.2s ease both; }
+.best-selling   { animation: fadeInUp 0.5s 0.3s ease both; }
+.new-arrival    { animation: fadeInUp 0.5s 0.4s ease both; }
+.music-banner   { animation: fadeInUp 0.5s 0.5s ease both; }
+.services       { animation: fadeInUp 0.5s 0.6s ease both; }
+
+/* ── 2. Карточки товаров — появление при hover-зоне ── */
+@keyframes cardPop {
+    0%   { transform: translateY(0) scale(1); }
+    50%  { transform: translateY(-6px) scale(1.02); }
+    100% { transform: translateY(-4px) scale(1.01); }
+}
+
+/* ── 3. Пульсация бейджа корзины/избранного ── */
+@keyframes badgePop {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+.cart-badge.pulse,
+.wishlist-badge.pulse {
+    animation: badgePop 0.35s ease;
+}
+
+/* ── 4. Кнопки — нажатие ── */
+@keyframes btnPress {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(0.96); }
+    100% { transform: scale(1); }
+}
+
+.btn-checkout:active,
+.btn-continue:active,
+.view-all-btn:active,
+.btn-cta:active,
+.btn-contact-submit:active {
+    animation: btnPress 0.2s ease;
+}
+
+/* ── 5. Лого — подмигивание при наведении ── */
+@keyframes logoBounce {
+    0%, 100% { letter-spacing: 1px; }
+    50%       { letter-spacing: 3px; }
+}
+
+.logo a:hover {
+    animation: logoBounce 0.4s ease;
+    display: inline-block;
+}
+
+/* ── 6. Toast — уже анимирован через transition,
+        добавляем иконке shake при ошибке ── */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-5px); }
+    60%       { transform: translateX(5px); }
+    80%       { transform: translateX(-3px); }
+}
+
+.toast-error {
+    animation: shake 0.4s ease 0.1s;
+}
+
+/* ── 7. Скелетон-shimmer для картинок (пока грузятся) ── */
+@keyframes shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+.product-image img[src=""],
+.product-image img:not([src]) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+/* ── 8. Стрелки навигации слайдера — bounce ── */
+@keyframes arrowBounce {
+    0%, 100% { transform: translateX(0); }
+    50%       { transform: translateX(4px); }
+}
+
+.arrow-btn:hover svg {
+    animation: arrowBounce 0.5s ease infinite;
+}
+
+/* ── 9. Категория при активации ── */
+@keyframes categoryActivate {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(0.94); }
+    100% { transform: scale(1); }
+}
+
+.category-card.active {
+    animation: categoryActivate 0.25s ease;
+}
+
+/* ── 10. Футер — плавное появление ── */
+@keyframes footerFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.footer {
+    animation: footerFadeIn 0.6s 0.7s ease both;
 }
