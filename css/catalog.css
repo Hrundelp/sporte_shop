@@ -1,8 +1,6 @@
-/* ══════════════════════════════════════════════
-   CATALOG PAGE
-   ══════════════════════════════════════════════ */
+/* CATALOG PAGE*/
 
-/* ─── Layout ──────────────────────────────────── */
+/* Layout */
 .catalog-section {
     padding: 0 0 100px 0;
 }
@@ -14,7 +12,7 @@
     align-items: start;
 }
 
-/* ─── Sidebar ─────────────────────────────────── */
+/* Sidebar  */
 .catalog-sidebar {
     position: sticky;
     top: 20px;
@@ -153,7 +151,7 @@
     color: #DB4444;
 }
 
-/* ─── Catalog Main ─────────────────────────────── */
+/* Catalog Main  */
 
 .catalog-toolbar {
     display: flex;
@@ -199,7 +197,7 @@
     border-color: #DB4444;
 }
 
-/* ─── Products Grid ───────────────────────────── */
+/* Products Grid */
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -209,7 +207,7 @@
 /* Карточка — переиспользуем .product-card из home.css,
    но добавляем характеристики */
 .catalog-grid .product-card {
-    flex: unset; /* сброс flex-basis из home.css */
+    flex: unset;
     animation: cardFadeIn 0.35s ease both;
 }
 
@@ -218,7 +216,7 @@
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Задержка для stagger-эффекта */
+/* Задержка для stagger-эффекта (тут надо бы подумать)*/
 .catalog-grid .product-card:nth-child(1)  { animation-delay: 0.00s; }
 .catalog-grid .product-card:nth-child(2)  { animation-delay: 0.05s; }
 .catalog-grid .product-card:nth-child(3)  { animation-delay: 0.10s; }
@@ -289,7 +287,7 @@
 }
 .catalog-empty button:hover { background: #c23d3d; }
 
-/* ─── Active filters chips ─────────────────────── */
+/* Active filters chips*/
 .active-filters {
     display: flex;
     flex-wrap: wrap;

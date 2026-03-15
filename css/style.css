@@ -18,8 +18,7 @@ body {
 }
 
 /* ══════════════════════════════════════════════
-   HEADER
-   ══════════════════════════════════════════════ */
+   HEADER */
 .navbar {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 20px 0;
@@ -94,8 +93,8 @@ body {
 
 
 /* ══════════════════════════════════════════════
-   HEADER AUTH — кнопка входа / аватар / дропдаун
-   ══════════════════════════════════════════════ */
+   HEADER AUTH — кнопка входа / аватар
+*/
 
 .btn-header-login {
     background: #DB4444;
@@ -218,8 +217,7 @@ body {
 }
 
 /* ══════════════════════════════════════════════
-   ИКОНКИ С БЕЙДЖЕМ
-   ══════════════════════════════════════════════ */
+   ИКОНКИ С БЕЙДЖЕМ */
 .icon-btn-wrap {
     position: relative;
     display: inline-flex;
@@ -244,8 +242,7 @@ body {
 }
 
 /* ══════════════════════════════════════════════
-   TOAST УВЕДОМЛЕНИЯ
-   ══════════════════════════════════════════════ */
+   TOAST УВЕДОМЛЕНИЯ */
 #toast-container {
     position: fixed;
     bottom: 24px;
@@ -284,8 +281,7 @@ body {
 }
 
 /* ══════════════════════════════════════════════
-   SECTION STYLES
-   ══════════════════════════════════════════════ */
+   SECTION STYLES*/
 section {
     padding: 80px 0;
 }
@@ -377,8 +373,7 @@ section {
 }
 
 /* ══════════════════════════════════════════════
-   FOOTER
-   ══════════════════════════════════════════════ */
+   FOOTER */
 .footer {
     background: #000;
     color: white;
@@ -480,8 +475,7 @@ section {
 }
 
 /* ══════════════════════════════════════════════
-   BREADCRUMB (cart, product)
-   ══════════════════════════════════════════════ */
+   BREADCRUMB (cart, product)*/
 .breadcrumb {
     display: flex;
     align-items: center;
@@ -500,8 +494,7 @@ section {
 .breadcrumb span:last-child { color: #000; }
 
 /* ══════════════════════════════════════════════
-   BURGER MENU
-   ══════════════════════════════════════════════ */
+   BURGER MENU */
 .burger-btn {
     display: none;
     flex-direction: column;
@@ -557,8 +550,7 @@ section {
 }
 
 /* ══════════════════════════════════════════════
-   SCROLL TO TOP
-   ══════════════════════════════════════════════ */
+   SCROLL TO TOP */
 .scroll-to-top {
     position: fixed;
     bottom: 30px;
@@ -577,8 +569,7 @@ section {
     transition: transform 0.2s;
 }
 /* ══════════════════════════════════════════════
-   SEARCH DROPDOWN
-   ══════════════════════════════════════════════ */
+   SEARCH DROPDOWN */
 .search-dropdown {
     position: absolute;
     top: calc(100% + 8px);
@@ -678,8 +669,7 @@ section {
 .search-dd-all:hover { background: rgba(219,68,68,0.1); }
 
 /* ══════════════════════════════════════════════
-   @KEYFRAMES ANIMATIONS
-   ══════════════════════════════════════════════ */
+   @KEYFRAMES ANIMATIONS */
 
 /* ── 1. Появление секций при загрузке страницы ── */
 @keyframes fadeInUp {
@@ -700,14 +690,14 @@ section {
 .music-banner   { animation: fadeInUp 0.5s 0.5s ease both; }
 .services       { animation: fadeInUp 0.5s 0.6s ease both; }
 
-/* ── 2. Карточки товаров — появление при hover-зоне ── */
+/*Карточки товаров — появление при hover-зоне */
 @keyframes cardPop {
     0%   { transform: translateY(0) scale(1); }
     50%  { transform: translateY(-6px) scale(1.02); }
     100% { transform: translateY(-4px) scale(1.01); }
 }
 
-/* ── 3. Пульсация бейджа корзины/избранного ── */
+/* Пульсация бейджа корзины/избранного*/
 @keyframes badgePop {
     0%   { transform: scale(1); }
     40%  { transform: scale(1.4); }
@@ -719,7 +709,7 @@ section {
     animation: badgePop 0.35s ease;
 }
 
-/* ── 4. Кнопки — нажатие ── */
+/*Кнопки — нажатие*/
 @keyframes btnPress {
     0%   { transform: scale(1); }
     50%  { transform: scale(0.96); }
@@ -734,31 +724,7 @@ section {
     animation: btnPress 0.2s ease;
 }
 
-/* ── 5. Лого — подмигивание при наведении ── */
-@keyframes logoBounce {
-    0%, 100% { letter-spacing: 1px; }
-    50%       { letter-spacing: 3px; }
-}
-
-.logo a:hover {
-    animation: logoBounce 0.4s ease;
-    display: inline-block;
-}
-
-/* ── 6. Toast — уже анимирован через transition,
-        добавляем иконке shake при ошибке ── */
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20%       { transform: translateX(-5px); }
-    60%       { transform: translateX(5px); }
-    80%       { transform: translateX(-3px); }
-}
-
-.toast-error {
-    animation: shake 0.4s ease 0.1s;
-}
-
-/* ── 7. Скелетон-shimmer для картинок (пока грузятся) ── */
+/*Скелетон-shimmer для картинок (пока грузятся)*/
 @keyframes shimmer {
     0%   { background-position: -400px 0; }
     100% { background-position: 400px 0; }
@@ -771,7 +737,7 @@ section {
     animation: shimmer 1.5s infinite linear;
 }
 
-/* ── 8. Стрелки навигации слайдера — bounce ── */
+/*Стрелки навигации слайдера*/
 @keyframes arrowBounce {
     0%, 100% { transform: translateX(0); }
     50%       { transform: translateX(4px); }
@@ -781,7 +747,7 @@ section {
     animation: arrowBounce 0.5s ease infinite;
 }
 
-/* ── 9. Категория при активации ── */
+/*Категория при активации*/
 @keyframes categoryActivate {
     0%   { transform: scale(1); }
     50%  { transform: scale(0.94); }
@@ -792,7 +758,7 @@ section {
     animation: categoryActivate 0.25s ease;
 }
 
-/* ── 10. Футер — плавное появление ── */
+/*Футер — плавное появление */
 @keyframes footerFadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }

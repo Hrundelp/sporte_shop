@@ -5,7 +5,7 @@
 
 const Store = (() => {
 
-    // ─── PROMO CODES ─────────────────────────────────────────────────────────
+    // ─── PROMO CODES
 
     const PROMO_CODES = {
         'SPORT10': { discount: 0.10, label: 'скидка 10%' },
@@ -19,7 +19,7 @@ const Store = (() => {
         return promo;
     }
 
-    // ─── AUTH ────────────────────────────────────────────────────────────────
+    // ─── AUTH
 
     function getUser() {
         try {
@@ -44,7 +44,7 @@ const Store = (() => {
         return getUser() !== null;
     }
 
-    // ─── CART ────────────────────────────────────────────────────────────────
+    // ─── CART
 
     function getCart() {
         try {
@@ -219,7 +219,7 @@ const Store = (() => {
         return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
     }
 
-    // ─── TOAST ───────────────────────────────────────────────────────────────
+    // TOAST
 
     function showToast(message, type = 'success') {
         let container = document.getElementById('toast-container');
@@ -245,9 +245,9 @@ const Store = (() => {
         }, 3000);
     }
 
-    // ─── INIT ─────────────────────────────────────────────────────────────────
+    // ─── INIT 
 
-    // ─── SEARCH DROPDOWN ──────────────────────────────────────────────────────
+    // ─── SEARCH DROPDOWN
 
     function initSearch() {
         const searchBox = document.querySelector('.search-box');

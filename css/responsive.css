@@ -1,6 +1,4 @@
-/* ══════════════════════════════════════════════
-   1200px — планшеты альбомные / маленькие ноутбуки
-   ══════════════════════════════════════════════ */
+/* 1200px  */
 @media (max-width: 1200px) {
     .container { max-width: 960px; }
 
@@ -20,9 +18,7 @@
     }
 }
 
-/* ══════════════════════════════════════════════
-   992px — средние экраны
-   ══════════════════════════════════════════════ */
+/*992px*/
 @media (max-width: 992px) {
     .container { max-width: 720px; }
 
@@ -51,9 +47,7 @@
     .banner-box-image img { max-width: 100%; height: auto; }
 }
 
-/* ══════════════════════════════════════════════
-   900px — формы auth / cart / product
-   ══════════════════════════════════════════════ */
+/* 900px */
 @media (max-width: 900px) {
     .signup-container,
     .login-container {
@@ -77,9 +71,7 @@
     .thumb-btn { width: 64px; height: 64px; }
 }
 
-/* ══════════════════════════════════════════════
-   768px — планшеты / большие телефоны
-   ══════════════════════════════════════════════ */
+/*768px */
 @media (max-width: 768px) {
     .container { max-width: 540px; }
 
@@ -108,9 +100,7 @@
     section { padding: 40px 0; }
 }
 
-/* ══════════════════════════════════════════════
-   640px — корзина мобильная
-   ══════════════════════════════════════════════ */
+/* 640px */
 @media (max-width: 640px) {
     .cart-table-head { display: none; }
     .cart-item {
@@ -122,7 +112,7 @@
     .cart-item-remove { justify-self: end; }
 }
 
-/* ─── Каталог и товар ──────────────────────────── */
+/*Каталог и товар*/
 @media (max-width: 1100px) {
     .catalog-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -147,7 +137,7 @@
     .catalog-grid { grid-template-columns: 1fr; }
     .catalog-sidebar { grid-template-columns: 1fr; }
 }
-/* ─── Responsive ──────────────────────────────── */
+/* Responsive*/
 @media (max-width: 900px) {
     .product-layout {
         grid-template-columns: 1fr;

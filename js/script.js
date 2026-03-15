@@ -3,13 +3,13 @@
  * Требует store.js подключённого ДО этого файла
  */
 
-// ─── COUNTDOWN TIMER ─────────────────────────────────────────────────────────
-// Целевая дата — 3 дня от первого запуска, сохраняем в localStorage
+// COUNTDOWN TIMER 
+// Целевая дата — 3 дня от первого запуска, сохраняется в localStorage
 function getCountdownTarget() {
     const key = 'sportiki_sale_end';
     let target = localStorage.getItem(key);
     if (!target) {
-        // Устанавливаем дату окончания — 3 дня с момента первого посещения
+        // дата окончания 3 дня с момента первого посещения
         target = Date.now() + 3 * 24 * 60 * 60 * 1000;
         localStorage.setItem(key, target);
     }
@@ -59,14 +59,14 @@ function updateCountdown() {
 const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown(); // запускаем сразу без задержки в 1 сек
 
-// ─── PRODUCTS SCROLL ─────────────────────────────────────────────────────────
+// PRODUCTS SCROLL
 function scrollProducts(direction) {
     const container = document.getElementById('flashProducts');
     if (!container) return;
     container.scrollBy({ left: direction === 'left' ? -300 : 300, behavior: 'smooth' });
 }
 
-// ─── CATEGORIES SCROLL ───────────────────────────────────────────────────────
+// CATEGORIES SCROLL
 function scrollCategories(direction) {
     const container = document.getElementById('categoriesGrid');
     if (!container) return;
@@ -75,7 +75,7 @@ function scrollCategories(direction) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ─── БУРГЕР-МЕНЮ ─────────────────────────────────────────────────────────
+    // БУРГЕР-МЕНЮ 
     const navbar = document.querySelector('.navbar .container');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ─── ЖИВОЙ ПОИСК ─────────────────────────────────────────────────────────
+    // ─── ЖИВОЙ ПОИСК
     const searchInput = document.querySelector('.search-box input');
     if (searchInput) {
         searchInput.addEventListener('input', () => {
@@ -132,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ─── ФИЛЬТРАЦИЯ ПО КАТЕГОРИЯМ ─────────────────────────────────────────────
-    // Маппинг названий категорий → ключевые слова для поиска в товарах
+    // ─── ФИЛЬТРАЦИЯ ПО КАТЕГОРИЯМ
+    // Маппинг названий категорий
     const CATEGORY_KEYWORDS = {
         'Одежда':      ['костюм', 'футболка', 'шорты', 'форма', 'gussi'],
         'Обувь':       ['кроссовки', 'бутсы', 'боксерки', 'обувь'],
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ─── HERO SLIDER ─────────────────────────────────────────────────────────
+    //HERO SLIDER
     const slider = document.getElementById('heroSlider');
     const dots   = document.querySelectorAll('.banner-dots span');
     let currentSlide = 0;
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slideInterval = setInterval(() => updateSlider((currentSlide + 1) % dots.length), 5000);
     }
 
-    // ─── КНОПКИ "В ИЗБРАННОЕ" (карточки товаров) ─────────────────────────────
+    // ─── КНОПКИ "В ИЗБРАННОЕ" (карточки товаров)
     // Работает для карточек с data-product-id на кнопке .action-btn
     document.querySelectorAll('.action-btn[data-product-id]').forEach(btn => {
         const id = btn.dataset.productId;
@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ─── КНОПКИ "В КОРЗИНУ" ──────────────────────────────────────────────────
+    // ─── КНОПКИ "В КОРЗИНУ" 
     document.querySelectorAll('.btn-to-cart').forEach(btn => {
         btn.addEventListener('click', () => {
             Store.addToCart({
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ─── NEWSLETTER ──────────────────────────────────────────────────────────
+    // ─── NEWSLETTER 
     document.querySelectorAll('.newsletter').forEach(form => {
         form.querySelector('button')?.addEventListener('click', (e) => {
             e.preventDefault();

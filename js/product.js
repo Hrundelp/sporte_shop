@@ -1,7 +1,7 @@
-/* ══════════════════════════════════════════════
+/* 
    product.js — логика страницы товара
    Зависит от: products.js, store.js
-   ══════════════════════════════════════════════ */
+*/
 
 function renderProduct(product) {
     document.title = `${product.name} | Спортики`;
@@ -209,9 +209,7 @@ function renderProduct(product) {
 }
 
 
-/* ══════════════════════════════════════════════
-   ОТЗЫВЫ
-   ══════════════════════════════════════════════ */
+/* ОТЗЫВЫ*/
 
 function getStoredReviews(productId) {
     try {

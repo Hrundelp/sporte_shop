@@ -1,6 +1,4 @@
-/* ══════════════════════════════════════════════
-   PROFILE PAGE
-   ══════════════════════════════════════════════ */
+/* PROFILE PAGE*/
 
 .profile-section {
     padding: 0 0 100px 0;
@@ -13,7 +11,7 @@
     align-items: start;
 }
 
-/* ─── Карточка пользователя ───────────────────── */
+/* Карточка пользователя  */
 .profile-card {
     background: #fff;
     border: 1px solid rgba(0,0,0,0.08);
@@ -114,7 +112,7 @@
     color: #DB4444;
 }
 
-/* ─── Форма редактирования ─────────────────────── */
+/* ─── Форма редактирования */
 .profile-form-wrap {
     background: #fff;
     border: 1px solid rgba(0,0,0,0.08);
@@ -213,7 +211,7 @@
 .btn-save-profile:hover { background: #c23d3d; }
 .btn-save-profile:active { transform: scale(0.98); }
 
-/* ─── Responsive ──────────────────────────────── */
+/* ─── Responsive*/
 @media (max-width: 900px) {
     .profile-layout {
         grid-template-columns: 1fr;

@@ -1,6 +1,4 @@
-/* ══════════════════════════════════════════════
-   CART SECTION
-   ══════════════════════════════════════════════ */
+/* CART SECTION*/
 .cart-section { padding: 0 0 80px 0; }
 
 .cart-title {
@@ -11,9 +9,7 @@
     letter-spacing: 1px;
 }
 
-/* ══════════════════════════════════════════════
-   EMPTY STATE
-   ══════════════════════════════════════════════ */
+/* EMPTY STATE*/
 .cart-empty {
     display: flex;
     flex-direction: column;
@@ -45,9 +41,7 @@
 }
 .btn-continue:hover { background: #c23d3d; }
 
-/* ══════════════════════════════════════════════
-   CART LAYOUT
-   ══════════════════════════════════════════════ */
+/* CART LAYOUT*/
 .cart-layout {
     display: grid;
     grid-template-columns: 1fr 320px;
@@ -55,9 +49,7 @@
     align-items: start;
 }
 
-/* ══════════════════════════════════════════════
-   CART TABLE
-   ══════════════════════════════════════════════ */
+/* CART TABLE*/
 .cart-items {
     background: #fff;
     border: 1px solid rgba(0,0,0,0.08);
@@ -170,9 +162,7 @@
 }
 .cart-item-remove:hover { color: #DB4444; }
 
-/* ══════════════════════════════════════════════
-   CART SUMMARY
-   ══════════════════════════════════════════════ */
+/*CART SUMMARY*/
 .cart-summary {
     background: #fff;
     border: 1px solid rgba(0,0,0,0.08);
@@ -274,9 +264,7 @@
 }
 .btn-continue-small:hover { color: #DB4444; }
 
-/* ══════════════════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════════════════ */
+/* RESPONSIVE*/
 @media (max-width: 900px) {
     .cart-layout {
         grid-template-columns: 1fr;
@@ -297,9 +285,7 @@
     .cart-item-total::before { content: "Итого: "; color: rgba(0,0,0,0.4); font-size: 12px; display: block; }
     .cart-item-remove { justify-self: end; }
 }
-/* ══════════════════════════════════════════════
-   CHECKOUT MODAL
-   ══════════════════════════════════════════════ */
+/* CHECKOUT MODAL*/
 
 .checkout-overlay {
     position: fixed;

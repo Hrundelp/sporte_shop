@@ -1,7 +1,6 @@
-/* ══════════════════════════════════════════════
+/* 
    wishlist.js — логика страницы избранного
-   Зависит от: store.js
-   ══════════════════════════════════════════════ */
+   Зависит от: store.js*/
 
 document.addEventListener('DOMContentLoaded', () => {
     renderWishlist();

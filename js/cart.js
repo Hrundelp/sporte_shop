@@ -8,9 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCheckout();
 });
 
-/* ══════════════════════════════════════════════
-   КОРЗИНА
-   ══════════════════════════════════════════════ */
+/*КОРЗИНА*/
 
 function renderCart() {
     const cart   = Store.getCart();
@@ -121,9 +119,7 @@ function applyPromo() {
     }
 }
 
-/* ══════════════════════════════════════════════
-   ОФОРМЛЕНИЕ ЗАКАЗА
-   ══════════════════════════════════════════════ */
+/*ОФОРМЛЕНИЕ ЗАКАЗА*/
 
 function openCheckout() {
     if (Store.getCart().length === 0) { Store.showToast('Корзина пуста', 'error'); return; }

@@ -1,12 +1,10 @@
-/* ══════════════════════════════════════════════
-   PRODUCT PAGE
-   ══════════════════════════════════════════════ */
+/* PRODUCT PAGE*/
 
 .product-section {
     padding: 0 0 100px 0;
 }
 
-/* ─── Layout ──────────────────────────────────── */
+/*Layout*/
 .product-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -15,7 +13,7 @@
     margin-bottom: 80px;
 }
 
-/* ─── Gallery ─────────────────────────────────── */
+/*Gallery*/
 .product-gallery {
     display: flex;
     gap: 16px;
@@ -85,7 +83,7 @@
     z-index: 1;
 }
 
-/* ─── Info panel ──────────────────────────────── */
+/*Info panel*/
 .product-info-panel {
     display: flex;
     flex-direction: column;
@@ -257,7 +255,7 @@
     stroke: #DB4444;
 }
 
-/* ─── Specs Table ─────────────────────────────── */
+/*Specs Table */
 .product-specs-section {
     margin-bottom: 80px;
 }
@@ -294,7 +292,7 @@
     font-weight: 500;
 }
 
-/* ─── Related Products ────────────────────────── */
+/* Related Products*/
 .related-section {
     margin-bottom: 20px;
 }
@@ -327,7 +325,7 @@
     animation: productFadeIn 0.4s 0.3s ease both;
 }
 
-/* ─── Not Found ───────────────────────────────── */
+/* Not Found*/
 .product-not-found {
     text-align: center;
     padding: 100px 20px;
@@ -354,9 +352,7 @@
     transition: background 0.25s;
 }
 .product-not-found a:hover { background: #c23d3d; }
-/* ══════════════════════════════════════════════
-   REVIEWS
-   ══════════════════════════════════════════════ */
+/* REVIEWS*/
 
 .reviews-section {
     margin-bottom: 60px;

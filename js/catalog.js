@@ -1,6 +1,4 @@
-/* ══════════════════════════════════════════════════════
-   СОСТОЯНИЕ ФИЛЬТРОВ
-   ══════════════════════════════════════════════════════ */
+/*СОСТОЯНИЕ ФИЛЬТРОВ*/
 let state = {
     category: 'all',
     priceMin: null,
@@ -9,9 +7,7 @@ let state = {
     sort: 'default'
 };
 
-/* ══════════════════════════════════════════════════════
-   РЕНДЕР
-   ══════════════════════════════════════════════════════ */
+/*РЕНДЕР*/
 function renderGrid(products) {
     const grid = document.getElementById('catalogGrid');
     grid.innerHTML = '';
@@ -109,9 +105,7 @@ function renderGrid(products) {
     document.getElementById('visibleCount').textContent = products.length;
 }
 
-/* ══════════════════════════════════════════════════════
-   ФИЛЬТРАЦИЯ + СОРТИРОВКА
-   ══════════════════════════════════════════════════════ */
+/* ФИЛЬТРАЦИЯ + СОРТИРОВКА*/
 function getFiltered() {
     let list = [...PRODUCTS];
 
@@ -166,9 +160,7 @@ function resetFilters() {
     applyAll();
 }
 
-/* ══════════════════════════════════════════════════════
-   CHIPS (активные фильтры)
-   ══════════════════════════════════════════════════════ */
+/* CHIPS (активные фильтры)*/
 function renderChips() {
     const wrap = document.getElementById('activeFilters');
     wrap.innerHTML = '';
@@ -212,9 +204,7 @@ function addChip(container, label, onRemove) {
     container.appendChild(chip);
 }
 
-/* ══════════════════════════════════════════════════════
-   СЧЁТЧИКИ В КАТЕГОРИЯХ
-   ══════════════════════════════════════════════════════ */
+/*СЧЁТЧИКИ В КАТЕГОРИЯХ*/
 function updateCounters() {
     const cats = ['boxing', 'clothing', 'shoes', 'running', 'accessories'];
     document.getElementById('cnt-all').textContent = PRODUCTS.length;
@@ -224,9 +214,7 @@ function updateCounters() {
     });
 }
 
-/* ══════════════════════════════════════════════════════
-   INIT
-   ══════════════════════════════════════════════════════ */
+/*INIT*/
 document.addEventListener('DOMContentLoaded', () => {
 
     // Читаем ?category= из URL (переход из сайдбара главной)
