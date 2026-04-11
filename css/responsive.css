@@ -1,3 +1,115 @@
+/*HOME PAGE RESPONSIVE */
+
+@media (max-width: 1024px) {
+    /* Скрываем сайдбар в Hero, так как он занимает много места */
+    .sidebar-menu {
+        display: none;
+    }
+    .hero-content {
+        gap: 0;
+    }
+    /* Уменьшаем сетку категорий до 3 в ряд */
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    /* Сетка товаров по 2 в ряд */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-banner, 
+    .slide {
+        min-height: 220px;
+        height: auto;
+    }
+
+    .slide {
+        padding: 30px 20px;
+    }
+
+    .hero-banner h1 {
+        font-size: 24px;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+        margin-bottom: 15px;
+    }
+
+    .banner-brand {
+        gap: 12px;
+        margin-bottom: 10px;
+    }
+    .banner-brand span {
+        font-size: 14px;
+    }
+
+    .banner-dots {
+        bottom: 15px;
+    }
+
+    .time-value {
+        font-size: 20px;
+    }
+
+    .arrival-grid {
+        grid-template-columns: 1fr;
+    }
+    .arrival-card.large {
+        height: 400px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .banner-box {
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .banner-box h2 {
+        font-size: 28px;
+    }
+    .timer-circles {
+        justify-content: center;
+        gap: 12px;
+    }
+    .banner-box-image img {
+        max-width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+        flex: 0 0 100%;
+    }
+
+    /* Кнопки на весь экран */
+    .buy-now-btn, .view-all-btn {
+        width: 100%;
+    }
+    
+}
+@media (max-width: 400px) {
+    .hero-banner h1 {
+        font-size: 20px;
+    }
+    .slide {
+        min-height: 180px;
+    }
+}
+
 /* 1200px  */
 @media (max-width: 1200px) {
     .container { max-width: 960px; }

@@ -319,3 +319,84 @@
     display: flex;
     align-items: center;
 }
+/* ══════════════════════════════════════════════
+   CATALOG RESPONSIVE 
+   ══════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .catalog-layout {
+        grid-template-columns: 1fr; /* Сайдбар встает над товарами */
+        gap: 30px;
+    }
+
+    .catalog-sidebar {
+        position: static;
+        width: 100%;
+        /* Сайдбар превращается в горизонтальную панель, чтобы не занимать много места */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .sidebar-block {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 товара в ряд */
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Исправление ширины футера */
+    .footer .container {
+        padding: 0 20px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+    }
+
+    .footer-column {
+        width: 100% !important; /* Убираем фиксированную ширину, из-за которой он вылезал */
+        box-sizing: border-box;
+    }
+
+    .footer-column img, 
+    .newsletter input {
+        max-width: 100%;
+    }
+
+    /* Адаптация тулбара каталога */
+    .catalog-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .sort-wrap {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-grid {
+        grid-template-columns: 1fr; /* 1 товар в ряд на телефонах */
+    }
+
+    .catalog-sidebar {
+        grid-template-columns: 1fr; /* Фильтры списком друг под другом */
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
