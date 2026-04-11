@@ -107,11 +107,7 @@
                             </div>
                         </div>
 
-                        <div class="contact-map">
-                            <script type="text/javascript" charset="utf-8" async
-                                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A62997e682d98349eb7d0facc6a17cbbcc2f975b1f869fff6c5aef7d81f950760&amp;width=100%&amp;height=300&amp;lang=ru_RU&amp;scroll=false">
-                                </script>
-                        </div>
+                        <div id="map" style="width: 100%; height: 300px;"></div>
 
                         <div class="contact-socials">
                             <p>Мы в социальных сетях:</p>
@@ -211,6 +207,8 @@
 
     <script src="js/products.js"></script>
     <script src="js/store.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=4c4a8a96-64d1-41fa-b382-1c1203345fd6&lang=ru_RU"
+        type="text/javascript"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Плавающий лейбл для textarea
@@ -243,6 +241,31 @@
                 this.reset();
             });
         });
+        ymaps.ready(init);
+
+    function init() {
+        // 2. Создаем саму карту
+        var myMap = new ymaps.Map('map', {
+            center: [55.753215, 37.622504], // Начальный центр (пока не пришел ответ от геокодера)
+            zoom: 12
+        });
+        
+        // 3. Выполняем геокодирование адреса
+        ymaps.geocode('Владимир, ул. Мира, 24').then(function (res) {
+            var firstGeoObject = res.geoObjects.get(0);
+            var coords = firstGeoObject.geometry.getCoordinates();
+
+            myMap.geoObjects.add(new ymaps.Placemark(coords, {
+                balloonContent: 'Наш офис на Мира, 24'
+            }, {
+                preset: 'islands#blueDotIcon'
+            }));
+
+            myMap.setCenter(coords, 16);
+        }, function (err) {
+            console.error('Ошибка геокодирования:', err);
+        });
+    }
     </script>
 </body>
 
