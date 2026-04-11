@@ -71,7 +71,7 @@
                             </div>
                             <div>
                                 <h3>Телефон</h3>
-                                <p>+8800-555-35-35</p>
+                                <p><a href="tel:+78005553535">+8800-555-35-35</a></p>
                                 <p class="contact-hint">Ежедневно с 9:00 до 21:00</p>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                             </div>
                             <div>
                                 <h3>Email</h3>
-                                <p>ggshop@gmail.com</p>
+                                <p><a href="mailto:ggshop@gmail.com">ggshop@gmail.com</a></p>
                                 <p class="contact-hint">Ответим в течение 24 часов</p>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                                 src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A62997e682d98349eb7d0facc6a17cbbcc2f975b1f869fff6c5aef7d81f950760&amp;width=100%&amp;height=300&amp;lang=ru_RU&amp;scroll=false">
                                 </script>
                         </div>
-                        
+
                         <div class="contact-socials">
                             <p>Мы в социальных сетях:</p>
                             <div class="social-links">
@@ -131,20 +131,21 @@
                         <form id="contactForm" class="contacts-form" novalidate>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <input type="text" id="contactName" name="name" required>
+                                    <input type="text" id="contactName" name="name" placeholder=" " required>
                                     <label for="contactName">Ваше имя</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" id="contactEmail" name="email" required>
+                                    <input type="email" id="contactEmail" name="email" placeholder=" " required>
                                     <label for="contactEmail">Email</label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="contactSubject" name="subject" required>
+                                <input type="text" id="contactSubject" name="subject" placeholder=" " required>
                                 <label for="contactSubject">Тема</label>
                             </div>
                             <div class="form-group">
-                                <textarea id="contactMessage" name="message" rows="5" required></textarea>
+                                <textarea id="contactMessage" name="message" rows="5" placeholder=" "
+                                    required></textarea>
                                 <label for="contactMessage">Сообщение</label>
                             </div>
                             <button type="submit" class="btn-contact-submit">Отправить сообщение</button>
