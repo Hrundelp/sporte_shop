@@ -110,6 +110,90 @@
     }
 }
 
+
+
+/* ══════════════════════════════════════════════
+   CATALOG RESPONSIVE (NEW)
+   ══════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .catalog-layout {
+        grid-template-columns: 1fr; /* Сайдбар переезжает наверх */
+        gap: 24px;
+    }
+
+    .catalog-sidebar {
+        position: static;
+        width: 100%;
+        padding: 20px;
+        /* Делаем фильтры компактными (в ряд), чтобы не листать долго до товаров */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .sidebar-block {
+        flex: 1;
+        min-width: 200px; /* Фильтры встанут в колонки, пока есть место */
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 товара */
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ФУТЕР: Убираем вылет за края */
+    .footer .container {
+        padding: 0 15px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 100%;
+    }
+
+    .footer-column {
+        width: 100% !important;
+        text-align: center; /* На мобилках лучше по центру */
+    }
+
+    .footer-column img {
+        max-width: 100%;
+    }
+
+    /* ТУЛБАР */
+    .catalog-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sort-wrap {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-grid {
+        grid-template-columns: 1fr; /* 1 товар */
+    }
+
+    .catalog-sidebar {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
 /* 1200px  */
 @media (max-width: 1200px) {
     .container { max-width: 960px; }
